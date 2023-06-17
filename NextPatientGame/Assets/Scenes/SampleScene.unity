@@ -321,6 +321,7 @@ GameObject:
   - component: {fileID: 1513594158}
   - component: {fileID: 1513594157}
   - component: {fileID: 1513594156}
+  - component: {fileID: 1513594160}
   m_Layer: 0
   m_Name: Doctor
   m_TagString: Untagged
@@ -417,3 +418,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1513594160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513594155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a73e4e87f0d0b94e873ab9e022f9ee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
