@@ -68,4 +68,12 @@ public class DoctorMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
             isGround = true;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Chair"))
+        {
+            Debug.Log("Sandalyeye Geldi");
+        }
+    }
 }
