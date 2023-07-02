@@ -551,7 +551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57b1a6851ae0d0b48a2ab713b441f4fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hedefNokta: {fileID: 1869865957}
+  targetPoint: {fileID: 1869865957}
 --- !u!195 &19898219
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -25563,7 +25563,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869865956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 5.83, z: 2.57}
+  m_LocalPosition: {x: 6, y: 5.83, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -25599,7 +25599,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: c71af38f181914540b16a37293af7d61, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1001 &1870072543
 PrefabInstance:
