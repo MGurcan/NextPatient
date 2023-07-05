@@ -21,6 +21,7 @@ public class DoctorMovement : MonoBehaviour
     private float jumpInput;
     private float runInput;
     private float runVelocity = 1f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -46,7 +47,9 @@ public class DoctorMovement : MonoBehaviour
             runVelocity = 1f;
         }
 
+
         Vector3 movement = new Vector3(movementInput.x * moveSpeedX, 0f, movementInput.y * moveSpeedZ);
+
         movement = transform.TransformDirection(movement);
         movement.x *= runVelocity * Time.deltaTime;
         movement.z *= runVelocity * Time.deltaTime;
