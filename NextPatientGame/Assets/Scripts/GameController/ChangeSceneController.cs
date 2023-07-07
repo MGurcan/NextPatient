@@ -19,6 +19,22 @@ public class ChangeSceneController : MonoBehaviour
     }
     */
 
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.L))
+        {
+            if(OfficeHolder.activeSelf)
+            {
+                ActiveComponent("Library");
+            }
+            else if(LibraryHolder.activeSelf)
+            {
+                ActiveComponent("Office");
+            }
+            
+        }
+    }
+
     public void ActiveComponent(string scene)
     {
         if(scene == "Office")
