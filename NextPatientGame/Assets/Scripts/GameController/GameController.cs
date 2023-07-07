@@ -6,15 +6,6 @@ public class GameController : MonoBehaviour
 
     public PatientSpawn patientSpawn;
     public bool isPatientActive = false;
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
 
     public void SpawnPatientController()
     {
