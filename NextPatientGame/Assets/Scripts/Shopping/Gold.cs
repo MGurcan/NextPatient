@@ -19,7 +19,7 @@ public class Gold : MonoBehaviour
         {
             Destroy(collision.gameObject);
             GatherGold(20);
-            goldText.text = "Gold: " + totalGold; 
+            goldText.text = "" + totalGold; 
         }
         
         

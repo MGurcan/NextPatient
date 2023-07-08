@@ -6,7 +6,7 @@ public class GoldSpawn : MonoBehaviour
 {
     public GameObject gold;
     public Transform goldSpawnPoint;
-
+    
     public void CreateGold()
     {
         Instantiate(gold, goldSpawnPoint.position, goldSpawnPoint.rotation);
