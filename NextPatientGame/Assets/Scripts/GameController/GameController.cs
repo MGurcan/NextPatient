@@ -23,9 +23,13 @@ public class GameController : MonoBehaviour
             SpawnPatientController();
         }
         if(patient != null)
+        {
             patientMovement = patient.GetComponent<PatientMovement>();
-        if (!quizOpened && patientMovement != null && patientMovement.GetIsReached())
-            OpenQuiz();
+            if (!quizOpened && patientMovement != null && patientMovement.GetIsReached())
+                OpenQuiz();
+        }
+            
+
     }
     public void SpawnPatientController()
     {
@@ -37,8 +41,23 @@ public class GameController : MonoBehaviour
     }
     public void OpenQuiz()
     {
-        QuizScreen.SetActive(true);
-        quizOpened = true; //refactor very tricky
+        if(patient != null)
+        {
+            QuizScreen.SetActive(true);
+            quizOpened = true; // TODO refactor: very tricky
+        }
+    }
+    public void CloseQuiz()
+    {
+
+        if (patient != null)
+        {   
+            Destroy(patient);
+            patient = null; // TODO refactor: update icerisinde tekrar open quiz calisiyor
+            isPatientActive = false;
+        }
+        quizOpened = false;
+        QuizScreen.SetActive(false);
     }
 
 }

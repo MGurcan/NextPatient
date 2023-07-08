@@ -2810,7 +2810,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 149521441}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2093712436}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: CloseQuiz
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &149521441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6728,7 +6740,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -8119,7 +8131,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -8254,7 +8266,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -9946,7 +9958,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -12263,6 +12275,12 @@ MonoBehaviour:
   patientSpawnPoint: {fileID: 610818908}
   patient: {fileID: 8722387108648408084, guid: 4371c41343931bd4b8918d990bf64b1f, type: 3}
   targetPoint: {x: 0, y: 0, z: 0}
+  patients:
+  - {fileID: 8722387108648408084, guid: 4371c41343931bd4b8918d990bf64b1f, type: 3}
+  - {fileID: 2179642776813175101, guid: 2cad93349f906114397390156e02336a, type: 3}
+  - {fileID: 4285756212588931474, guid: 1f0fb8abbc3ae8740b8f19dd3a7e5064, type: 3}
+  - {fileID: 5733636247904363407, guid: 2277f7be822966d46906a04d2dd83fd1, type: 3}
+  - {fileID: 1384262661435029152, guid: de2f872901702b647aa7272a9f13a9f2, type: 3}
 --- !u!1001 &611931411
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18231,7 +18249,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
