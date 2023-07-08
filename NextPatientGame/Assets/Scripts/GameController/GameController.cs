@@ -12,10 +12,13 @@ public class GameController : MonoBehaviour
 
     private bool quizOpened = false;
 
+
+    public GoldSpawn goldSpawn;
     private void Awake()
     {
         //Cursor.lockState = CursorLockMode.Locked;
         //Cursor.visible = false;
+
     }
     private void Update()
     {
@@ -47,7 +50,7 @@ public class GameController : MonoBehaviour
             quizOpened = true; // TODO refactor: very tricky
         }
     }
-    public void CloseQuiz()
+    public void CloseQuiz(bool correctWrongAnswer) //correctWrongAnswer: true->correct answer, false-> wrong answer
     {
 
         if (patient != null)
@@ -58,6 +61,12 @@ public class GameController : MonoBehaviour
         }
         quizOpened = false;
         QuizScreen.SetActive(false);
+
+        if (correctWrongAnswer)
+        {
+            goldSpawn.CreateGold();
+        }
     }
+
 
 }

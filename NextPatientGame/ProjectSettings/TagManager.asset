@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Chair
   - Doctor
+  - Gold
   layers:
   - Default
   - TransparentFX
