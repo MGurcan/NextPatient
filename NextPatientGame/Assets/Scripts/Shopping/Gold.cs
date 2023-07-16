@@ -5,23 +5,55 @@ using UnityEngine.UI;
 
 public class Gold : MonoBehaviour
 {
-    private int totalGold = 0;
+    #region SIngleton:Game
 
-    public Text goldText;
-    private void GatherGold(int goldAmount)
+    public static Gold Instance;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    #endregion
+    public int totalGold;
+
+    [SerializeField] Text[] allCoinsUIText;
+    void Start()
+    {
+        totalGold = 1000;
+        UpdateAllCoinsUIText();
+        Debug.Log("len" + allCoinsUIText.Length);
+    }
+    public void GatherGold(int goldAmount)
     {
         totalGold += goldAmount;
     }
-
-    private void OnCollisionEnter(Collision collision)
+    public void UpdateAllCoinsUIText()
     {
-        if (collision.gameObject.CompareTag("Gold"))
+        Debug.Log("selam buraya girdi."  + allCoinsUIText);
+        Debug.Log(allCoinsUIText.Length);
+        for (int i = 0; i < allCoinsUIText.Length; i++)
         {
-            Destroy(collision.gameObject);
-            GatherGold(20);
-            goldText.text = "" + totalGold; 
+            Debug.Log("totalGold.ToString(): " + totalGold.ToString());
+            allCoinsUIText[i].text = totalGold.ToString();
+
         }
-        
-        
+    }
+    public bool HasEnoughCoins(int amount)
+    {
+        return (totalGold >= amount);
+    }
+
+    public void UseCoins(int amount)
+    {
+        totalGold -= amount;
     }
 }

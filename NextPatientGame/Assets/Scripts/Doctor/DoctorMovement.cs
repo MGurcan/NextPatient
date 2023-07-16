@@ -22,6 +22,8 @@ public class DoctorMovement : MonoBehaviour
     private float runInput;
     private float runVelocity = 1f;
 
+
+    public Gold gold;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -78,5 +80,14 @@ public class DoctorMovement : MonoBehaviour
         {
             Debug.Log("Sandalyeye Geldi");
         }
+
+        if (collision.gameObject.CompareTag("Gold"))
+        {
+            Destroy(collision.gameObject);
+            gold.GatherGold(20);
+            gold.UpdateAllCoinsUIText();
+            
+        }
     }
+
 }
