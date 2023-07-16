@@ -32557,28 +32557,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jokers: {fileID: 3584501049773521062}
   ShopItemsList:
-  - Image: {fileID: 21300000, guid: aad717d31715b6e46a17d6fbf28455ac, type: 3}
+  - Image: {fileID: 21300000, guid: 5a74a6e7bb516694b9a2cbe05a4750bc, type: 3}
     Price: 120
     IsPurchased: 0
     purchaseCount: 0
-  - Image: {fileID: 21300002, guid: aad717d31715b6e46a17d6fbf28455ac, type: 3}
+  - Image: {fileID: 21300000, guid: 00629a58b78064c47af91006a01c0386, type: 3}
     Price: 123
     IsPurchased: 0
     purchaseCount: 0
-  - Image: {fileID: 21300004, guid: aad717d31715b6e46a17d6fbf28455ac, type: 3}
+  - Image: {fileID: 21300000, guid: bff9bfaaf992f9e4bacf45f1a7d153ce, type: 3}
     Price: 235
-    IsPurchased: 0
-    purchaseCount: 0
-  - Image: {fileID: 21300008, guid: aad717d31715b6e46a17d6fbf28455ac, type: 3}
-    Price: 342
-    IsPurchased: 0
-    purchaseCount: 0
-  - Image: {fileID: 21300022, guid: aad717d31715b6e46a17d6fbf28455ac, type: 3}
-    Price: 500
-    IsPurchased: 0
-    purchaseCount: 0
-  - Image: {fileID: 21300018, guid: aad717d31715b6e46a17d6fbf28455ac, type: 3}
-    Price: 400
     IsPurchased: 0
     purchaseCount: 0
   NoCoinsAnim: {fileID: 409941149}
