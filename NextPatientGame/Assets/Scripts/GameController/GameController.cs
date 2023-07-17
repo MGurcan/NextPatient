@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
 
 
     public GoldSpawn goldSpawn;
+    public QuizManager quizManager;
     private void Awake()
     {
         //Cursor.lockState = CursorLockMode.Locked;
@@ -48,6 +49,7 @@ public class GameController : MonoBehaviour
         {
             QuizScreen.SetActive(true);
             quizOpened = true; // TODO refactor: very tricky
+            quizManager.prepareQuiz(patientMovement.patientId);
         }
     }
     public void CloseQuiz(bool correctWrongAnswer) //correctWrongAnswer: true->correct answer, false-> wrong answer

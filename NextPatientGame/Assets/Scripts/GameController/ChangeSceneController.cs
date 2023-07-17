@@ -8,17 +8,6 @@ public class ChangeSceneController : MonoBehaviour
 {
     public GameObject OfficeHolder;
     public GameObject LibraryHolder;
-
-    /*
-    public void ChangeScene(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
-
-        Scene currentScene = SceneManager.GetActiveScene();
-        SceneManager.UnloadSceneAsync(currentScene);
-    }
-    */
-
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.L))

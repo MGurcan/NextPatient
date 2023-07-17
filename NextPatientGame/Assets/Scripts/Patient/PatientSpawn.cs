@@ -18,7 +18,7 @@ public class PatientSpawn : MonoBehaviour
         GameObject spawnedPatient = Instantiate(patients[currentPatientIndex % patients.Length], patientSpawnPoint.position, patientSpawnPoint.rotation);
 
         spawnedPatient.GetComponent<PatientMovement>().targetPoint = targetPoint;
-
+        spawnedPatient.GetComponent<PatientMovement>().patientId = currentPatientIndex;
         currentPatientIndex++;
         return spawnedPatient;
     }

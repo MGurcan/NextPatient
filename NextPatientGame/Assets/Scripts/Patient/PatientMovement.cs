@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class PatientMovement : MonoBehaviour
 {
+    public int patientId;
     public Vector3 targetPoint;
     private NavMeshAgent agent;
     private bool isReached = false;
