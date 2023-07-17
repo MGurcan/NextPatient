@@ -38,11 +38,8 @@ public class Gold : MonoBehaviour
     }
     public void UpdateAllCoinsUIText()
     {
-        Debug.Log("selam buraya girdi."  + allCoinsUIText);
-        Debug.Log(allCoinsUIText.Length);
         for (int i = 0; i < allCoinsUIText.Length; i++)
         {
-            Debug.Log("totalGold.ToString(): " + totalGold.ToString());
             allCoinsUIText[i].text = totalGold.ToString();
 
         }
