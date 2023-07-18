@@ -22,6 +22,7 @@ public class Shop : MonoBehaviour
 	{
 		public Sprite Image;
 		public int Price;
+		public int shopItemId;
 		public bool IsPurchased = false;
 
         public int purchaseCount = 0;
@@ -63,7 +64,7 @@ public class Shop : MonoBehaviour
             Gold.Instance.UpdateAllCoinsUIText();
             Debug.Log("Joker at index: " + itemIndex + " purchased!!");
 			ShopItemsList[itemIndex].purchaseCount++;
-            
+
 
             if (!ShopItemsList[itemIndex].IsPurchased)
 				jokers.PurchaseJoker(ShopItemsList[itemIndex]);

@@ -6,7 +6,7 @@ using static Shop;
 public class Jokers : MonoBehaviour
 {
 
-    public List<ShopItem> ShopItemsList;
+    public List<ShopItem> purchasedJokers;
     
     void Start()
     {
@@ -17,16 +17,16 @@ public class Jokers : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.O)){
-            for(int i = 0; i < ShopItemsList.Count; i++)
+            for(int i = 0; i < purchasedJokers.Count; i++)
             {
-                Debug.Log(ShopItemsList[i].ToString);
+                Debug.Log(purchasedJokers[i].ToString);
             }
         }    
     }
 
     public void PurchaseJoker(ShopItem shopItem)
     {
-        ShopItemsList.Add(shopItem);
+        purchasedJokers.Add(shopItem);
     }
 
 }

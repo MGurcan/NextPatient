@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using static Shop;
+
 public class QuizManager : MonoBehaviour
 {
     public Question[] quizQuestions;
@@ -22,8 +24,12 @@ public class QuizManager : MonoBehaviour
     private Color defaultButtonColor;
     private Color defaultPanelColor;
 
+
+
     public Color DefaultButtonColor { get => defaultButtonColor; set => defaultButtonColor = value; }
 
+
+    public Jokers jokers;
     private void Awake()
     {
         if (ColorUtility.TryParseHtmlString("#85FF31", out Color color))
@@ -47,8 +53,6 @@ public class QuizManager : MonoBehaviour
     }
     private void Start()
     { 
-        Debug.Log(DefaultButtonColor);
-        Debug.Log(defaultPanelColor);
         quizQuestions = new Question[]
         {
             new Question("Soru 1", new string[] { "Sýk 1", "Þýk 2", "Sýk 3", "Sýk 4" }, 1),
@@ -93,6 +97,22 @@ public class QuizManager : MonoBehaviour
     public void SetJokerButtons()
     {
         
+        for(int i = 0; i < jokers.purchasedJokers.Count; i++)
+        {
+            int jokerID = jokers.purchasedJokers[i].shopItemId;
+            jokerButtons[jokerID].onClick.RemoveAllListeners();
+
+            jokerButtons[jokerID].GetComponentInChildren<Text>().text = jokers.purchasedJokers[i].purchaseCount + "";
+            if (jokerID == 0)
+            {
+                jokerButtons[jokerID].onClick.AddListener(Activate_50_Joker);
+            }
+            else if(jokerID == 2)
+            {
+                jokerButtons[jokerID].onClick.AddListener(Activate_x2_Joker);
+            }
+        }
+        /*
         //Button 0 -> 50/50
         jokerButtons[0].onClick.RemoveAllListeners();
         jokerButtons[0].onClick.AddListener(Activate_50_Joker);
@@ -102,6 +122,7 @@ public class QuizManager : MonoBehaviour
         jokerButtons[2].onClick.RemoveAllListeners();
         jokerButtons[2].onClick.AddListener(Activate_x2_Joker);
         jokerButtons[2].GetComponentInChildren<Text>().text = 4.ToString();
+        */    
     }
 
     private void ButtonClicked(int selectedOptionIndex)
