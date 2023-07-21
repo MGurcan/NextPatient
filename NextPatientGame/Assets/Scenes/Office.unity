@@ -13865,7 +13865,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 2
+  m_Text: 0
 --- !u!222 &639552216
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14363,6 +14363,7 @@ MonoBehaviour:
   - {fileID: 830635139}
   - {fileID: 1333885052}
   - {fileID: 1111738114}
+  jokers: {fileID: 3584501049773521062}
 --- !u!4 &670816783
 Transform:
   m_ObjectHideFlags: 0
@@ -20995,6 +20996,7 @@ MonoBehaviour:
   gameController: {fileID: 0}
   PanelColor: {fileID: 0}
   jokerButtons: []
+  jokers: {fileID: 0}
 --- !u!1001 &969906223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34824,14 +34826,17 @@ MonoBehaviour:
   ShopItemsList:
   - Image: {fileID: 21300000, guid: 5a74a6e7bb516694b9a2cbe05a4750bc, type: 3}
     Price: 120
+    shopItemId: 0
     IsPurchased: 0
     purchaseCount: 0
   - Image: {fileID: 21300000, guid: 00629a58b78064c47af91006a01c0386, type: 3}
     Price: 123
+    shopItemId: 1
     IsPurchased: 0
     purchaseCount: 0
   - Image: {fileID: 21300000, guid: bff9bfaaf992f9e4bacf45f1a7d153ce, type: 3}
     Price: 235
+    shopItemId: 2
     IsPurchased: 0
     purchaseCount: 0
   NoCoinsAnim: {fileID: 409941149}
@@ -35092,7 +35097,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 2
+  m_Text: 0
 --- !u!222 &1601401837
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -40548,7 +40553,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 2
+  m_Text: 0
 --- !u!222 &1839868919
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -47889,4 +47894,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 671479eaeea22ce43b07f48316600b99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShopItemsList: []
+  purchasedJokers: []

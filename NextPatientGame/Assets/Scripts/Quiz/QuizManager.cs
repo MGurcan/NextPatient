@@ -30,8 +30,12 @@ public class QuizManager : MonoBehaviour
 
 
     public Jokers jokers;
+
+    private QuizTimer quizTimer;
+
     private void Awake()
     {
+        quizTimer = GetComponent<QuizTimer>();
         if (ColorUtility.TryParseHtmlString("#85FF31", out Color color))
         {
             defaultButtonColor = color;
@@ -68,8 +72,28 @@ public class QuizManager : MonoBehaviour
             new Question("Bu olgunun klinikopatolojik ayırıcı tanısında ön planda düşünülmesi gereken hastalık aşağıdakilerden hangisidir? ", new string[] { "Wilson hastalığı ", "Caroli hastalığı ", "Kistik fibrozis ", "Konjenital hepatik fibrozis" }, new string[] { "14 yaşında erkek", "Portal hipertansiyona ikincil semptomlara sahip", "karaciğer biyopsisinde, parankimi düzensiz bir şekilde bölen kalın kollajenöz septalarla genişlemiş portal alanlar ve kenarında safra yollarıyla devamlılık gösteren anormal şekilli safra kanalları izleniyor"},3)
         };
     }
+
+    void OnEnable()
+    {
+        QuizTimer.OnQuizFinished += OnQuizFinishedHandler;
+    }
+
+    void OnDisable()
+    {
+        QuizTimer.OnQuizFinished -= OnQuizFinishedHandler;
+    }
+
+    // Olay tetiklendiğinde yapılacak işlemler
+    void OnQuizFinishedHandler()
+    {
+        // Quiz bittiğinde yapılacak işlemleri burada gerçekleştirin
+        Debug.Log("Quiz bitti!");
+        StartCoroutine(TimeOutAnswer(2));
+        // Örneğin: Sonuçları gösterebilir veya yeni bir quiz başlatabilirsiniz.
+    }
     public void prepareQuiz(int quizQuestionID)
     {
+        quizTimer.StartTimer();
         selectOptionTimes = 0;
         x2Enabled = false;
         PanelColor.color = defaultPanelColor;
@@ -105,30 +129,24 @@ public class QuizManager : MonoBehaviour
         
         for(int i = 0; i < jokers.purchasedJokers.Count; i++)
         {
-            int jokerID = jokers.purchasedJokers[i].shopItemId;
+            int currentIndex = i;
+            int jokerID = jokers.purchasedJokers[i].shopItemId; // @MGurcan TODO: NEED REFACTOR jokerID and purchasedJokerIndex so tricky-rough coded
             jokerButtons[jokerID].onClick.RemoveAllListeners();
 
             jokerButtons[jokerID].GetComponentInChildren<Text>().text = jokers.purchasedJokers[i].purchaseCount + "";
             if (jokerID == 0)
             {
-                jokerButtons[jokerID].onClick.AddListener(Activate_50_Joker);
+                jokerButtons[jokerID].onClick.AddListener(() => Activate_50_Joker(currentIndex));
             }
-            else if(jokerID == 2)
+            else if (jokerID == 1)
             {
-                jokerButtons[jokerID].onClick.AddListener(Activate_x2_Joker);
+                jokerButtons[jokerID].onClick.AddListener(() => Activate_ExtraTime_Joker(currentIndex));
             }
-        }
-        /*
-        //Button 0 -> 50/50
-        jokerButtons[0].onClick.RemoveAllListeners();
-        jokerButtons[0].onClick.AddListener(Activate_50_Joker);
-        jokerButtons[0].GetComponentInChildren<Text>().text = 3.ToString();
-
-        //Button 2 -> x2
-        jokerButtons[2].onClick.RemoveAllListeners();
-        jokerButtons[2].onClick.AddListener(Activate_x2_Joker);
-        jokerButtons[2].GetComponentInChildren<Text>().text = 4.ToString();
-        */    
+            else if (jokerID == 2)
+            {
+                jokerButtons[jokerID].onClick.AddListener(() => Activate_x2_Joker(currentIndex));
+            }
+        }  
     }
 
     private void ButtonClicked(int selectedOptionIndex)
@@ -156,23 +174,55 @@ public class QuizManager : MonoBehaviour
 
     }
 
-    public void Activate_50_Joker()
+    public void Activate_50_Joker(int purchaseJokerIndex)
     {
-        Debug.Log("Activate 50 Joker Implemented");
-        int deleteCount = 0;
-        for (int i = 0; i < optionButtons.Length; i++)
-        {
-            if (i != correctOption && deleteCount < 2)
+        if(jokers.purchasedJokers[purchaseJokerIndex].purchaseCount > 0) { 
+        
+            jokers.purchasedJokers[purchaseJokerIndex].purchaseCount--;
+
+            int jokerID = jokers.purchasedJokers[purchaseJokerIndex].shopItemId;
+            jokerButtons[jokerID].GetComponentInChildren<Text>().text = jokers.purchasedJokers[purchaseJokerIndex].purchaseCount + "";
+
+            Debug.Log("Activate 50 Joker Implemented");
+            int deleteCount = 0;
+            for (int i = 0; i < optionButtons.Length; i++)
             {
-                optionButtons[i].interactable = false;
-                deleteCount++;
+                if (i != correctOption && deleteCount < 2)
+                {
+                    optionButtons[i].interactable = false;
+                    deleteCount++;
+                }
             }
         }
+
     }
-    public void Activate_x2_Joker()
+    public void Activate_ExtraTime_Joker(int purchaseJokerIndex)
     {
-        Debug.Log("Activate x2 Joker Implemented");
-        x2Enabled = true;
+        if (jokers.purchasedJokers[purchaseJokerIndex].purchaseCount > 0)
+        {
+            jokers.purchasedJokers[purchaseJokerIndex].purchaseCount--;
+
+            int jokerID = jokers.purchasedJokers[purchaseJokerIndex].shopItemId;
+            jokerButtons[jokerID].GetComponentInChildren<Text>().text = jokers.purchasedJokers[purchaseJokerIndex].purchaseCount + "";
+            
+            Debug.Log("Activate ExtraTime Joker Implemented");
+            quizTimer.AddExtraTime(10);
+        }
+
+    }
+    public void Activate_x2_Joker(int purchaseJokerIndex)
+    {
+        if (jokers.purchasedJokers[purchaseJokerIndex].purchaseCount > 0)
+        {
+            jokers.purchasedJokers[purchaseJokerIndex].purchaseCount--;
+
+            int jokerID = jokers.purchasedJokers[purchaseJokerIndex].shopItemId;
+            jokerButtons[jokerID].GetComponentInChildren<Text>().text = jokers.purchasedJokers[purchaseJokerIndex].purchaseCount + "";
+
+            Debug.Log("Activate x2 Joker Implemented");
+            x2Enabled = true;
+        }
+
     }
 
     private IEnumerator CorrectAnswer(float delay, int selectedOptionIndex)
@@ -207,6 +257,23 @@ public class QuizManager : MonoBehaviour
                 optionButtons[selectedOptionIndex].interactable = false;
             }
         }
+
+    }
+    private IEnumerator TimeOutAnswer(float delay)
+    {
+        
+        if(PanelColor != null)
+        {
+            PanelColor.color = Color.red;
+
+            yield return new WaitForSeconds(delay);
+
+            gameController.CloseQuiz(false);
+        }
+            
+            
+        
+
 
     }
 }
