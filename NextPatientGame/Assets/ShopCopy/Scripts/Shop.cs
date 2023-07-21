@@ -43,6 +43,12 @@ public class Shop : MonoBehaviour
 
 	void Start ()
 	{
+		for(int i = 0; i < ShopItemsList.Count; i++)
+		{
+			jokers.PurchaseJoker(ShopItemsList[i]);
+        }
+		
+
 		int len = ShopItemsList.Count;
 		for (int i = 0; i < len; i++) {
 			g = Instantiate (ItemTemplate, ShopScrollView);
@@ -63,11 +69,10 @@ public class Shop : MonoBehaviour
 			Gold.Instance.UseCoins(ShopItemsList[itemIndex].Price);
             Gold.Instance.UpdateAllCoinsUIText();
             Debug.Log("Joker at index: " + itemIndex + " purchased!!");
-			ShopItemsList[itemIndex].purchaseCount++;
-
-
-            if (!ShopItemsList[itemIndex].IsPurchased)
-				jokers.PurchaseJoker(ShopItemsList[itemIndex]);
+			
+			//ShopItemsList[itemIndex].purchaseCount++;
+			jokers.purchasedJokers[itemIndex].purchaseCount++;
+			
             ShopItemsList[itemIndex].IsPurchased = true;
             UpdateBuyButton(itemIndex, ShopItemsList[itemIndex].purchaseCount);
         }

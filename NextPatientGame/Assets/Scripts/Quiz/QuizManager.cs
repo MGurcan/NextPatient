@@ -87,7 +87,6 @@ public class QuizManager : MonoBehaviour
     void OnQuizFinishedHandler()
     {
         // Quiz bittiğinde yapılacak işlemleri burada gerçekleştirin
-        Debug.Log("Quiz bitti!");
         StartCoroutine(TimeOutAnswer(2));
         // Örneğin: Sonuçları gösterebilir veya yeni bir quiz başlatabilirsiniz.
     }
@@ -126,25 +125,24 @@ public class QuizManager : MonoBehaviour
 
     public void SetJokerButtons()
     {
-        
-        for(int i = 0; i < jokers.purchasedJokers.Count; i++)
+        for (int i = 0; i < jokers.purchasedJokers.Count; i++)
         {
             int currentIndex = i;
-            int jokerID = jokers.purchasedJokers[i].shopItemId; // @MGurcan TODO: NEED REFACTOR jokerID and purchasedJokerIndex so tricky-rough coded
+            int jokerID = jokers.purchasedJokers[currentIndex].shopItemId; // @MGurcan TODO: NEED REFACTOR jokerID and purchasedJokerIndex so tricky-rough coded
             jokerButtons[jokerID].onClick.RemoveAllListeners();
 
-            jokerButtons[jokerID].GetComponentInChildren<Text>().text = jokers.purchasedJokers[i].purchaseCount + "";
+            jokerButtons[jokerID].GetComponentInChildren<Text>().text = jokers.purchasedJokers[currentIndex].purchaseCount + "";
             if (jokerID == 0)
             {
                 jokerButtons[jokerID].onClick.AddListener(() => Activate_50_Joker(currentIndex));
             }
             else if (jokerID == 1)
             {
-                jokerButtons[jokerID].onClick.AddListener(() => Activate_ExtraTime_Joker(currentIndex));
+                jokerButtons[jokerID].onClick.AddListener(() => Activate_x2_Joker(currentIndex));
             }
             else if (jokerID == 2)
             {
-                jokerButtons[jokerID].onClick.AddListener(() => Activate_x2_Joker(currentIndex));
+                jokerButtons[jokerID].onClick.AddListener(() => Activate_ExtraTime_Joker(currentIndex));
             }
         }  
     }
@@ -229,6 +227,7 @@ public class QuizManager : MonoBehaviour
     {
         PanelColor.color = Color.green;
         optionButtons[selectedOptionIndex].GetComponent<Image>().color = Color.yellow;
+        quizTimer.StopTimer();
         yield return new WaitForSeconds(delay);
         gameController.CloseQuiz(true);
     }
@@ -238,6 +237,7 @@ public class QuizManager : MonoBehaviour
         {
             optionButtons[selectedOptionIndex].GetComponent<Image>().color = Color.red;
             PanelColor.color = Color.red;
+            quizTimer.StopTimer();
             yield return new WaitForSeconds(delay);
             gameController.CloseQuiz(false);
         }
@@ -265,7 +265,7 @@ public class QuizManager : MonoBehaviour
         if(PanelColor != null)
         {
             PanelColor.color = Color.red;
-
+            quizTimer.StopTimer();
             yield return new WaitForSeconds(delay);
 
             gameController.CloseQuiz(false);

@@ -14,7 +14,7 @@ public class QuizTimer : MonoBehaviour
     public static event QuizFinished OnQuizFinished;
     void Start()
     {
-        StartTimer();
+        //StartTimer();
     }
 
     void Update()
