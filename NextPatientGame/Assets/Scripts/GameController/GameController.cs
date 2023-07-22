@@ -37,11 +37,24 @@ public class GameController : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.N)){
             SpawnPatientController();
         }
+
         if(patient != null)
         {
             patientMovement = patient.GetComponent<PatientMovement>();
             if (!quizOpened && patientMovement != null && patientMovement.GetIsReached())
                 OpenQuiz();
+        }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if (QuizScreen.active == false)
+            {
+                GiveClue();
+            }
+            else
+            {
+                Debug.Log("Clue give time finished");
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.P))
@@ -74,6 +87,12 @@ public class GameController : MonoBehaviour
             quizOpened = true; // TODO refactor: very tricky
             quizManager.prepareQuiz(patientMovement.patientId);
         }
+    }
+    public void GiveClue()
+    {
+        quizManager.CombineClues(patientMovement.patientId);
+        string randomClue = quizManager.GetRandomClue(patientMovement.patientId);
+        Debug.Log("Random Clue: " + randomClue);
     }
     public void CloseQuiz(bool correctWrongAnswer) //correctWrongAnswer: true->correct answer, false-> wrong answer
     {
