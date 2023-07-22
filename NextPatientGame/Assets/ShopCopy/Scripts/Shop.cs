@@ -90,6 +90,8 @@ public class Shop : MonoBehaviour
 	}
 
 	/*---------------------Open & Close shop--------------------------*/
+	
+	/*
 	public void OpenShop ()
 	{
         ShopObject.SetActive(true);
@@ -99,5 +101,6 @@ public class Shop : MonoBehaviour
 	{
         ShopObject.SetActive(false);
     }
-
+	*/
 }
+

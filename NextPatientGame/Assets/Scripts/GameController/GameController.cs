@@ -9,7 +9,8 @@ public class GameController : MonoBehaviour
     public bool isPatientActive = false;
 
     private GameObject patient;
-
+    public GameObject Shop;
+    public GameObject InformationPanel;
     private bool quizOpened = false;
 
 
@@ -17,10 +18,20 @@ public class GameController : MonoBehaviour
     public QuizManager quizManager;
     private void Awake()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = false;
-
+        LockAndHideCursor();
     }
+
+    void LockAndHideCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+    void UnlockAndShowCursor()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.N)){
@@ -32,7 +43,18 @@ public class GameController : MonoBehaviour
             if (!quizOpened && patientMovement != null && patientMovement.GetIsReached())
                 OpenQuiz();
         }
-            
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Shop.SetActive(true);
+            UnlockAndShowCursor();
+        }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            InformationPanel.SetActive(true);
+            UnlockAndShowCursor();
+        }
 
     }
     public void SpawnPatientController()
@@ -48,6 +70,7 @@ public class GameController : MonoBehaviour
         if(patient != null)
         {
             QuizScreen.SetActive(true);
+            UnlockAndShowCursor();
             quizOpened = true; // TODO refactor: very tricky
             quizManager.prepareQuiz(patientMovement.patientId);
         }
@@ -63,6 +86,7 @@ public class GameController : MonoBehaviour
         }
         quizOpened = false;
         QuizScreen.SetActive(false);
+        LockAndHideCursor();
 
         if (correctWrongAnswer)
         {
@@ -70,5 +94,16 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void CloseShop()
+    {
+        Shop.SetActive(false);
+        LockAndHideCursor();
+    }
+
+    public void CloseInformationPanel()
+    {
+        InformationPanel.SetActive(false);
+        LockAndHideCursor();
+    }
 
 }
