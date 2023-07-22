@@ -76,10 +76,6 @@ public class DoctorMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Chair"))
-        {
-            Debug.Log("Sandalyeye Geldi");
-        }
 
         if (collision.gameObject.CompareTag("Gold"))
         {

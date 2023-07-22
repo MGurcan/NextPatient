@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour
     public QuizManager quizManager;
     private void Awake()
     {
-        LockAndHideCursor();
+       LockAndHideCursor();
     }
 
     void LockAndHideCursor()
