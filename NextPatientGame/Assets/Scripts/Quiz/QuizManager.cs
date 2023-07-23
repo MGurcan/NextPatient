@@ -27,6 +27,8 @@ public class QuizManager : MonoBehaviour
     private Color defaultPanelColor;
 
 
+    public Transform LibraryCluesViewport;
+    public Button GetCluesButton;
 
     public Color DefaultButtonColor { get => defaultButtonColor; set => defaultButtonColor = value; }
 
@@ -176,6 +178,37 @@ public class QuizManager : MonoBehaviour
         UpdateOptionButtons(quizQuestionID);
         correctOption  = quizQuestions[quizQuestionID].correctAnswer;
         SetJokerButtons();
+        AssignCluesToLibrary(quizQuestionID);
+        GetCluesButton.interactable = false;
+    }
+
+    private void AssignCluesToLibrary(int quizQuestionID)
+    {
+        allCluesList = quizQuestions[quizQuestionID].GetCorrectClues();
+        if (allCluesList.Count > 0)
+        {
+            
+            if (LibraryCluesViewport != null)
+            {
+                Text[] texts = LibraryCluesViewport.GetComponentsInChildren<Text>(); // Viewport içindeki tüm Text UI nesnelerini al
+
+                for(int i = 0; i < allCluesList.Count; i++)
+                {
+                    if (i == 4)
+                        break;
+                    texts[i].text = allCluesList[i];
+                }
+
+            }
+            else
+            {
+                Debug.LogError("Viewport bulunamadı!");
+            }
+        }
+        else
+        {
+            Debug.LogError("List<string> içinde en az 4 öğe olmalıdır!");
+        }
     }
     public void UpdateQuizQuestion(int quizQuestionID)
     {
@@ -243,6 +276,10 @@ public class QuizManager : MonoBehaviour
             {
                 jokerButtons[jokerID].onClick.AddListener(() => Activate_ExtraTime_Joker(currentIndex));
             }
+            else if (jokerID == 3)
+            {
+                jokerButtons[jokerID].onClick.AddListener(() => Activate_SeeClues_Joker(currentIndex));
+            }
         }  
     }
 
@@ -291,7 +328,6 @@ public class QuizManager : MonoBehaviour
                 }
             }
         }
-
     }
     public void Activate_ExtraTime_Joker(int purchaseJokerIndex)
     {
@@ -305,7 +341,6 @@ public class QuizManager : MonoBehaviour
             Debug.Log("Activate ExtraTime Joker Implemented");
             quizTimer.AddExtraTime(10);
         }
-
     }
     public void Activate_x2_Joker(int purchaseJokerIndex)
     {
@@ -319,9 +354,32 @@ public class QuizManager : MonoBehaviour
             Debug.Log("Activate x2 Joker Implemented");
             x2Enabled = true;
         }
-
     }
 
+    public void Activate_SeeClues_Joker(int purchaseJokerIndex)
+    {
+        Debug.Log("Activate_SeeClues_Joker");
+        if (jokers.purchasedJokers[purchaseJokerIndex].purchaseCount > 0)
+        {
+            jokers.purchasedJokers[purchaseJokerIndex].purchaseCount--;
+            
+            GetCluesButton.interactable = true; //Library GetClues buttonu aktif
+            StartCoroutine(ActivateSeeCluesJokerCoroutine(20));
+            quizTimer.AddExtraTime(20);
+        }
+    }
+    // Coroutine, quiz ekranını kaldırır ve bekler
+    private IEnumerator ActivateSeeCluesJokerCoroutine(float delay)
+    {
+        // Quiz ekranını kapat
+        gameController.SeeCluesJokerCloseQuiz();
+
+        // Diğer eylemleri burada yapabilirsiniz (15 saniye bekleme, diğer işlemler vs.)
+        yield return new WaitForSeconds(delay);
+
+        // Quiz ekranını geri getir
+        gameController.SeeCluesJokerOpenQuiz();
+    }
     private IEnumerator CorrectAnswer(float delay, int selectedOptionIndex)
     {
         PanelColor.color = Color.green;
@@ -369,10 +427,5 @@ public class QuizManager : MonoBehaviour
 
             gameController.CloseQuiz(false);
         }
-            
-            
-        
-
-
     }
 }

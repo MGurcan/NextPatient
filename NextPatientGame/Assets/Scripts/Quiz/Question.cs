@@ -17,4 +17,9 @@ public class Question : MonoBehaviour
         this.falseClues = falseClues;
         this.correctAnswer = correctAnswer;
     }
+
+    public List<string> GetCorrectClues()
+    {
+        return this.clues;
+    }
 }

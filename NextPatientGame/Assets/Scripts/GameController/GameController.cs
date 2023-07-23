@@ -4,6 +4,8 @@ public class GameController : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject QuizScreen;
+    public GameObject LibraryHolder;
+    public GameObject OfficeHolder;
     public PatientSpawn patientSpawn;
     public PatientMovement patientMovement;
     public bool isPatientActive = false;
@@ -16,6 +18,8 @@ public class GameController : MonoBehaviour
 
     public GoldSpawn goldSpawn;
     public QuizManager quizManager;
+
+
     private void Awake()
     {
        LockAndHideCursor();
@@ -111,6 +115,21 @@ public class GameController : MonoBehaviour
         {
             goldSpawn.CreateGold();
         }
+    }
+
+    public void SeeCluesJokerCloseQuiz()
+    {
+        //quizOpened = false;
+        Debug.Log("gamcontroller, quizdekatif");
+        QuizScreen.SetActive(false);
+        LockAndHideCursor();
+    }
+
+    public void SeeCluesJokerOpenQuiz()
+    {
+        OfficeHolder.SetActive(true);
+        LibraryHolder.SetActive(false);
+        OpenQuiz();
     }
 
     public void CloseShop()
