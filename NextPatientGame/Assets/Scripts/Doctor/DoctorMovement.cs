@@ -82,7 +82,11 @@ public class DoctorMovement : MonoBehaviour
             Destroy(collision.gameObject);
             gold.GatherGold(20);
             gold.UpdateAllCoinsUIText();
-            
+        }
+
+        if (collision.gameObject.CompareTag("WireTask"))
+        {
+
         }
     }
 

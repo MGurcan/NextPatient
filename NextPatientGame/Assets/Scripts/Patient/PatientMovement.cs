@@ -17,6 +17,7 @@ public class PatientMovement : MonoBehaviour
     void Start()
     {
         controller = GameObject.FindWithTag("GameController");
+        controller.GetComponent<GameController>().currentPatientID = patientId;
         agent = GetComponent<NavMeshAgent>();
 
         Invoke("SetPatientDestination", patientSpawnDelay);    //3 secs aftes spawn make patient moving

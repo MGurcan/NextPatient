@@ -10,6 +10,8 @@ public class PatientSpawn : MonoBehaviour
 
     private int currentPatientIndex = 0;
 
+    public GameObject quizManager;
+
     public GameObject Spawn()
     {
         Debug.Log("Patient Spawned");
@@ -20,6 +22,7 @@ public class PatientSpawn : MonoBehaviour
         spawnedPatient.GetComponent<PatientMovement>().targetPoint = targetPoint;
         spawnedPatient.GetComponent<PatientMovement>().patientId = currentPatientIndex;
         currentPatientIndex++;
+        quizManager.GetComponent<QuizManager>().PrepareCluesForMiniGames();
         return spawnedPatient;
     }
 }

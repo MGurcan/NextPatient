@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
@@ -18,9 +19,12 @@ public class GameController : MonoBehaviour
 
     public GoldSpawn goldSpawn;
     public QuizManager quizManager;
+    public int currentPatientID = 0;
+
+    public GameObject MiniGames;
+    public GameObject[] MiniGameButtons;
 
     public NumbersTask numbersTask;
-
     private void Awake()
     {
        LockAndHideCursor();
@@ -74,6 +78,20 @@ public class GameController : MonoBehaviour
             UnlockAndShowCursor();
         }
 
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            bool active = false;
+            for(int i = 0; i<MiniGameButtons.Length; i++)
+            {
+                if (MiniGameButtons[i].activeSelf) active = true;
+            }
+            if (active)
+            {
+                OfficeHolder.SetActive(false);
+                MiniGames.SetActive(true);
+                UnlockAndShowCursor();
+            }
+        }
         if (Input.GetKeyDown(KeyCode.A))
         {
             numbersTask.RestartGame();

@@ -37,6 +37,11 @@ public class QuizManager : MonoBehaviour
 
     private QuizTimer quizTimer;
 
+
+    public List<string> allCluesList;
+
+    public int correctMiniGameID = 0;
+
     private void Awake()
     {
         quizTimer = GetComponent<QuizTimer>();
@@ -161,6 +166,11 @@ public class QuizManager : MonoBehaviour
         StartCoroutine(TimeOutAnswer(2));
         // Örneğin: Sonuçları gösterebilir veya yeni bir quiz başlatabilirsiniz.
     }
+
+    public void PrepareCluesForMiniGames()
+    {
+        correctMiniGameID = UnityEngine.Random.Range(0, 2);
+    }
     public void prepareQuiz(int quizQuestionID)
     {
         quizTimer.StartTimer();
@@ -182,6 +192,20 @@ public class QuizManager : MonoBehaviour
         GetCluesButton.interactable = false;
     }
 
+    public void GatherClues(int miniGameID)   //for mini games
+    {
+        if(miniGameID == correctMiniGameID)
+        {
+            allCluesList = quizQuestions[gameController.currentPatientID].GetCorrectClues();
+        }
+        Debug.Log("correctMiniGameID: " + correctMiniGameID);
+        Debug.Log("this MiniGameID: " + miniGameID);
+        for (int i = 0; i<allCluesList.Count; i++)
+        {
+            Debug.Log("clue: " + i + " " + allCluesList[i]);
+        }
+    }
+
     private void AssignCluesToLibrary(int quizQuestionID)
     {
         allCluesList = quizQuestions[quizQuestionID].GetCorrectClues();
@@ -198,7 +222,6 @@ public class QuizManager : MonoBehaviour
                         break;
                     texts[i].text = allCluesList[i];
                 }
-
             }
             else
             {
@@ -225,7 +248,7 @@ public class QuizManager : MonoBehaviour
         }
     }
 
-    public List<string> allCluesList;
+
     public void CombineClues(int quizQuestionID)
     {
         allCluesList = new List<string>();
