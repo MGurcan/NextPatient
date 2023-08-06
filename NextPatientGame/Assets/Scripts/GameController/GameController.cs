@@ -94,10 +94,6 @@ public class GameController : MonoBehaviour
                 UnlockAndShowCursor();
             }
         }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            numbersTask.RestartGame();
-        }
 
 
     }
