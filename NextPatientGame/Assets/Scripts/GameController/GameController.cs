@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour
     public GoldSpawn goldSpawn;
     public QuizManager quizManager;
 
+    public NumbersTask numbersTask;
 
     private void Awake()
     {
@@ -72,6 +73,12 @@ public class GameController : MonoBehaviour
             InformationPanel.SetActive(true);
             UnlockAndShowCursor();
         }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            numbersTask.RestartGame();
+        }
+
 
     }
     public void SpawnPatientController()
