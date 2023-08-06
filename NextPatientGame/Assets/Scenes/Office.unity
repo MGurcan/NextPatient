@@ -2871,7 +2871,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 920899674}
+      - m_Target: {fileID: 796144026}
         m_TargetAssemblyTypeName: NumbersTask, Assembly-CSharp
         m_MethodName: pressButton
         m_Mode: 2
@@ -10765,6 +10765,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 491620741}
+  - component: {fileID: 491620742}
   m_Layer: 0
   m_Name: MiniGames
   m_TagString: Untagged
@@ -10791,6 +10792,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &491620742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491620740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b778463547d11974b8e341e755b05b92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OfficeHolder: {fileID: 735407089}
+  WireTask: {fileID: 1713638988}
+  NumbersTask: {fileID: 0}
 --- !u!1 &491906553
 GameObject:
   m_ObjectHideFlags: 0
@@ -14707,7 +14723,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 920899674}
+      - m_Target: {fileID: 796144026}
         m_TargetAssemblyTypeName: NumbersTask, Assembly-CSharp
         m_MethodName: pressButton
         m_Mode: 2
@@ -18398,6 +18414,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 796144025}
+  - component: {fileID: 796144026}
   m_Layer: 0
   m_Name: NumbersTask
   m_TagString: Untagged
@@ -18421,6 +18438,32 @@ Transform:
   m_Father: {fileID: 491620741}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &796144026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796144024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448e948de23e81148a98ff94d991acfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons:
+  - {fileID: 627648306}
+  - {fileID: 1807042178}
+  - {fileID: 141535330}
+  - {fileID: 1403374171}
+  - {fileID: 1818693657}
+  - {fileID: 1104084047}
+  - {fileID: 1909817619}
+  - {fileID: 1928467322}
+  - {fileID: 1557894602}
+  - {fileID: 1325840045}
+  shuffledButtons: []
+  quizManager: {fileID: 670816782}
+  MiniGames: {fileID: 491620740}
 --- !u!1 &798853306
 GameObject:
   m_ObjectHideFlags: 0
@@ -21260,7 +21303,6 @@ GameObject:
   - component: {fileID: 920899673}
   - component: {fileID: 920899672}
   - component: {fileID: 920899671}
-  - component: {fileID: 920899674}
   m_Layer: 0
   m_Name: NumbersTaskCanvas
   m_TagString: Untagged
@@ -21352,30 +21394,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &920899674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 920899669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 448e948de23e81148a98ff94d991acfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttons:
-  - {fileID: 627648306}
-  - {fileID: 1807042178}
-  - {fileID: 141535330}
-  - {fileID: 1403374171}
-  - {fileID: 1818693657}
-  - {fileID: 1104084047}
-  - {fileID: 1909817619}
-  - {fileID: 1928467322}
-  - {fileID: 1557894602}
-  - {fileID: 1325840045}
-  shuffledButtons: []
 --- !u!1 &922462362
 GameObject:
   m_ObjectHideFlags: 0
@@ -26031,7 +26049,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 920899674}
+      - m_Target: {fileID: 796144026}
         m_TargetAssemblyTypeName: NumbersTask, Assembly-CSharp
         m_MethodName: pressButton
         m_Mode: 2
@@ -31420,7 +31438,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 920899674}
+      - m_Target: {fileID: 796144026}
         m_TargetAssemblyTypeName: NumbersTask, Assembly-CSharp
         m_MethodName: pressButton
         m_Mode: 2
@@ -33044,7 +33062,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 920899674}
+      - m_Target: {fileID: 796144026}
         m_TargetAssemblyTypeName: NumbersTask, Assembly-CSharp
         m_MethodName: pressButton
         m_Mode: 2
@@ -36642,7 +36660,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 920899674}
+      - m_Target: {fileID: 796144026}
         m_TargetAssemblyTypeName: NumbersTask, Assembly-CSharp
         m_MethodName: pressButton
         m_Mode: 2
@@ -40309,6 +40327,7 @@ MonoBehaviour:
   CurrentHoveredWire: {fileID: 0}
   IsTaskCompleted: 0
   quizManager: {fileID: 670816782}
+  MiniGames: {fileID: 491620740}
 --- !u!4 &1717380646 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: cba00f75539bc564fabb9136fccfac6c, type: 3}
@@ -42548,7 +42567,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 920899674}
+      - m_Target: {fileID: 796144026}
         m_TargetAssemblyTypeName: NumbersTask, Assembly-CSharp
         m_MethodName: pressButton
         m_Mode: 2
@@ -42901,7 +42920,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 920899674}
+      - m_Target: {fileID: 796144026}
         m_TargetAssemblyTypeName: NumbersTask, Assembly-CSharp
         m_MethodName: pressButton
         m_Mode: 2
@@ -44371,6 +44390,7 @@ GameObject:
   - component: {fileID: 1876704078}
   - component: {fileID: 1876704077}
   - component: {fileID: 1876704076}
+  - component: {fileID: 1876704079}
   m_Layer: 0
   m_Name: NumbersTask
   m_TagString: Untagged
@@ -44464,6 +44484,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1876704074}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1876704079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876704074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f44d56afa5bfedb4aa33627068f09196, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OpenNumbersTaskGameButton: {fileID: 1166992082}
+  NumbersTaskMachineObject: {fileID: 796144024}
 --- !u!1 &1878290794
 GameObject:
   m_ObjectHideFlags: 0
@@ -45335,7 +45369,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 920899674}
+      - m_Target: {fileID: 796144026}
         m_TargetAssemblyTypeName: NumbersTask, Assembly-CSharp
         m_MethodName: pressButton
         m_Mode: 2
@@ -45937,7 +45971,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 920899674}
+      - m_Target: {fileID: 796144026}
         m_TargetAssemblyTypeName: NumbersTask, Assembly-CSharp
         m_MethodName: pressButton
         m_Mode: 2
@@ -50116,11 +50150,12 @@ MonoBehaviour:
   goldSpawn: {fileID: 501002910}
   quizManager: {fileID: 670816782}
   currentPatientID: 0
+  MiniGameController: {fileID: 491620740}
   MiniGames: {fileID: 491620740}
   MiniGameButtons:
   - {fileID: 1277601876}
   - {fileID: 1166992082}
-  numbersTask: {fileID: 920899674}
+  numbersTask: {fileID: 0}
 --- !u!4 &2093712437
 Transform:
   m_ObjectHideFlags: 0
