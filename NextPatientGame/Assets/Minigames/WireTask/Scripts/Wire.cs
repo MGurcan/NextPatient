@@ -38,6 +38,7 @@ public class Wire : MonoBehaviour, /*IPointerDownHandler, */ IDragHandler, IBegi
                 canvas.worldCamera,
                 out movePos
                 );
+            Debug.Log("selam");
             lineRenderer.SetPosition(0, transform.position);
             lineRenderer.SetPosition(1, canvas.transform.TransformPoint(movePos));
         }
@@ -90,5 +91,11 @@ public class Wire : MonoBehaviour, /*IPointerDownHandler, */ IDragHandler, IBegi
         }
         isDragStarted = false;
         wireTask.CurrentDraggedWire = null;
+    }
+
+    public void ResetLineRenderer()
+    {
+        lineRenderer.SetPosition(0, Vector3.zero);
+        lineRenderer.SetPosition(1, Vector3.zero);
     }
 }

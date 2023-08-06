@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour
     public QuizManager quizManager;
     public int currentPatientID = 0;
 
+    public GameObject MiniGameController;
     public GameObject MiniGames;
     public GameObject[] MiniGameButtons;
 
@@ -87,8 +88,9 @@ public class GameController : MonoBehaviour
             }
             if (active)
             {
-                OfficeHolder.SetActive(false);
-                MiniGames.SetActive(true);
+                //OfficeHolder.SetActive(false);
+                //MiniGames.SetActive(true);
+                MiniGameController.GetComponent<MiniGameController>().OpenTask();
                 UnlockAndShowCursor();
             }
         }
