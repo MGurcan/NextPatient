@@ -3282,8 +3282,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57b1a6851ae0d0b48a2ab713b441f4fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  patientId: 0
   targetPoint: {x: 0, y: 0, z: 0}
   controller: {fileID: 0}
+  patientSpawnDelay: 15
 --- !u!1 &9162610052303806109
 GameObject:
   m_ObjectHideFlags: 0

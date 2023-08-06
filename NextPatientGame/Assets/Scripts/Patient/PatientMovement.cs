@@ -12,12 +12,14 @@ public class PatientMovement : MonoBehaviour
 
     public GameObject controller;
 
+    [SerializeField] private float patientSpawnDelay = 3f;
+
     void Start()
     {
         controller = GameObject.FindWithTag("GameController");
         agent = GetComponent<NavMeshAgent>();
 
-        Invoke("SetPatientDestination", 3f);    //3 secs aftes spawn make patient moving
+        Invoke("SetPatientDestination", patientSpawnDelay);    //3 secs aftes spawn make patient moving
     }
 
     void Update()
