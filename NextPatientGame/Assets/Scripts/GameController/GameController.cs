@@ -74,7 +74,7 @@ public class GameController : MonoBehaviour
             {
                 if (MiniGameButtons[i].activeSelf) active = true;
             }
-            if (active)
+            if (active && patient != null)
             {
                 //OfficeHolder.SetActive(false);
                 //MiniGames.SetActive(true);

@@ -269,6 +269,10 @@ public class QuizManager : MonoBehaviour
         Debug.Log("this MiniGameID: " + miniGameID);
     }
 
+    public int GetCorrectMiniGameID()
+    {
+        return correctMiniGameID;
+    }
     private void AssignCluesToLibrary(int quizQuestionID)
     {
         List<string> clues = quizQuestions[quizQuestionID].GetCorrectClues();

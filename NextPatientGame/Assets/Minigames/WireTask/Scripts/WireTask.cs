@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class WireTask : MonoBehaviour
 {
 
@@ -24,6 +24,9 @@ public class WireTask : MonoBehaviour
 
     public QuizManager quizManager;
     public GameObject MiniGames;
+
+    [SerializeField] GameObject GatheredCluesText;
+    [SerializeField] Animator NoCoinsAnim;
     private void Start()
     {
         Cursor.lockState = CursorLockMode.None;
@@ -74,6 +77,14 @@ public class WireTask : MonoBehaviour
             {
                 quizManager.GatherClues(minigameID_wiretask);
 
+
+                if(quizManager.GetCorrectMiniGameID() == minigameID_wiretask)
+                {
+                    GatheredCluesText.SetActive(true);
+                    NoCoinsAnim.SetTrigger("NoCoins");
+                    yield return new WaitForSeconds(1);
+                }
+                GatheredCluesText.SetActive(false);
                 MiniGames.GetComponent<MiniGameController>().CloseTask(transform.gameObject);
                 ResetGame();
             }
