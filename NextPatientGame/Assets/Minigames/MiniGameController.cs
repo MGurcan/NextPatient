@@ -9,17 +9,21 @@ public class MiniGameController : MonoBehaviour
 
     public GameObject WireTask;
     public GameObject NumbersTask;
+
+    public GameController GameController;
     public void CloseTask(GameObject taskObject)
     {
         taskObject.SetActive(false);
         transform.gameObject.SetActive(false);
-        OfficeHolder.SetActive(true);
+        //OfficeHolder.SetActive(true);
+        GameController.LockAndHideCursor();
     }
 
     public void OpenTask()
     {
-        OfficeHolder.SetActive(false);
+        //OfficeHolder.SetActive(false);
         transform.gameObject.SetActive(true);
-        WireTask.GetComponent<WireTask>().StartCheckWireTask();
+        if(WireTask != null) { WireTask.GetComponent<WireTask>().StartCheckWireTask(); }
+       
     }
 }

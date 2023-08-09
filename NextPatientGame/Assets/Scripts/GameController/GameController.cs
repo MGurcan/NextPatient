@@ -31,12 +31,12 @@ public class GameController : MonoBehaviour
        LockAndHideCursor();
     }
 
-    void LockAndHideCursor()
+    public void LockAndHideCursor()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-    void UnlockAndShowCursor()
+    public void UnlockAndShowCursor()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;

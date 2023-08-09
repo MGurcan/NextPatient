@@ -4,6 +4,7 @@ using System.Collections;
 using static Shop;
 using System.Collections.Generic;
 using System;
+using System.Runtime.CompilerServices;
 
 public class QuizManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class QuizManager : MonoBehaviour
     public Button[] optionButtons;
     public int correctOption;
     public Text quizQuestion;
+    public Text quizClues;
 
     public GameController gameController;
 
@@ -190,6 +192,13 @@ public class QuizManager : MonoBehaviour
         SetJokerButtons();
         AssignCluesToLibrary(quizQuestionID);
         GetCluesButton.interactable = false;
+
+        string cluesText = "";
+        for(int i = 0; i<allCluesList.Count; i++)
+        {
+            cluesText += allCluesList[i] + "\n";
+        }
+        quizClues.text = cluesText;
     }
 
     public void GatherClues(int miniGameID)   //for mini games
