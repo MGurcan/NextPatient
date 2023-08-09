@@ -40,9 +40,12 @@ public class QuizManager : MonoBehaviour
     private QuizTimer quizTimer;
 
 
-    public List<string> allCluesList;
+    public List<string> allCluesList = null;
 
     public int correctMiniGameID = 0;
+
+    public Sprite[] PatientSprites;
+    public Image PatientImage;
 
     private void Awake()
     {
@@ -70,6 +73,51 @@ public class QuizManager : MonoBehaviour
     { 
         quizQuestions = new Question[]
         {
+            new Question("Bu tabloya yol acmasi en olasi bakteri asagidakilerden hangisidir?",
+            new string[] { "Burkholderia cepacia kompleks", "Stenotrophomonas maltophilia", "Acinetobacter baumannii kompleks", "Pseudomonas aeruginosa" },
+            new List<string> {
+                "Daha once antibiyotik tedavisi almistir.",
+                "Yas 65 kadin hasta",
+                "Yuksek Ates Ve titreme",
+                "Yuksek Ates Ve titreme" },
+            new List<string> {"clue kazanamadı 1", "tekrar dene 1" },
+            1),
+                        new Question("Bu tabloya yol acmasi en olasi bakteri asagidakilerden hangisidir?",
+            new string[] { "Burkholderia cepacia kompleks", "Stenotrophomonas maltophilia", "Acinetobacter baumannii kompleks", "Pseudomonas aeruginosa" },
+            new List<string> {
+                "Daha once antibiyotik tedavisi almistir.",
+                "Yas 65 kadin hasta",
+                "Yuksek Ates Ve titreme",
+                "Yuksek Ates Ve titreme" },
+            new List<string> {"clue kazanamadı 1", "tekrar dene 1" },
+            1),
+                                    new Question("Bu tabloya yol acmasi en olasi bakteri asagidakilerden hangisidir?",
+            new string[] { "Burkholderia cepacia kompleks", "Stenotrophomonas maltophilia", "Acinetobacter baumannii kompleks", "Pseudomonas aeruginosa" },
+            new List<string> {
+                "Daha once antibiyotik tedavisi almistir.",
+                "Yas 65 kadin hasta",
+                "Yuksek Ates Ve titreme",
+                "Yuksek Ates Ve titreme" },
+            new List<string> {"clue kazanamadı 1", "tekrar dene 1" },
+            1),
+                                                new Question("Bu tabloya yol acmasi en olasi bakteri asagidakilerden hangisidir?",
+            new string[] { "Burkholderia cepacia kompleks", "Stenotrophomonas maltophilia", "Acinetobacter baumannii kompleks", "Pseudomonas aeruginosa" },
+            new List<string> {
+                "Daha once antibiyotik tedavisi almistir.",
+                "Yas 65 kadin hasta",
+                "Yuksek Ates Ve titreme",
+                "Yuksek Ates Ve titreme" },
+            new List<string> {"clue kazanamadı 1", "tekrar dene 1" },
+            1),
+                                                            new Question("Bu tabloya yol acmasi en olasi bakteri asagidakilerden hangisidir?",
+            new string[] { "Burkholderia cepacia kompleks", "Stenotrophomonas maltophilia", "Acinetobacter baumannii kompleks", "Pseudomonas aeruginosa" },
+            new List<string> {
+                "Daha once antibiyotik tedavisi almistir.",
+                "Yas 65 kadin hasta",
+                "Yuksek Ates Ve titreme",
+                "Yuksek Ates Ve titreme" },
+            new List<string> {"clue kazanamadı 1", "tekrar dene 1" },
+            1),
             new Question("Bu tabloya yol açması en olası bakteri aşağıdakilerden hangisidir?",
             new string[] { "Burkholderia cepacia kompleks ", "Stenotrophomonas maltophilia ", "Acinetobacter baumannii kompleks ", "Pseudomonas aeruginosa " },
             new List<string> { 
@@ -193,12 +241,22 @@ public class QuizManager : MonoBehaviour
         AssignCluesToLibrary(quizQuestionID);
         GetCluesButton.interactable = false;
 
-        string cluesText = "";
-        for(int i = 0; i<allCluesList.Count; i++)
+        Debug.Log("allclueslist: " + allCluesList); 
+        if(allCluesList.Count <= 0)
         {
-            cluesText += allCluesList[i] + "\n";
+            quizClues.text = "Clue Toplayamadin, Bol sans!!!";
         }
-        quizClues.text = cluesText;
+        else
+        {
+            string cluesText = "";
+            for (int i = 0; i < allCluesList.Count; i++)
+            {
+                cluesText += allCluesList[i] + "\n";
+            }
+            quizClues.text = cluesText;
+        }
+
+        PatientImage.sprite = PatientSprites[quizQuestionID % PatientSprites.Length];
     }
 
     public void GatherClues(int miniGameID)   //for mini games
@@ -209,27 +267,22 @@ public class QuizManager : MonoBehaviour
         }
         Debug.Log("correctMiniGameID: " + correctMiniGameID);
         Debug.Log("this MiniGameID: " + miniGameID);
-        for (int i = 0; i<allCluesList.Count; i++)
-        {
-            Debug.Log("clue: " + i + " " + allCluesList[i]);
-        }
     }
 
     private void AssignCluesToLibrary(int quizQuestionID)
     {
-        allCluesList = quizQuestions[quizQuestionID].GetCorrectClues();
-        if (allCluesList.Count > 0)
+        List<string> clues = quizQuestions[quizQuestionID].GetCorrectClues();
+        if (clues.Count > 0)
         {
-            
             if (LibraryCluesViewport != null)
             {
                 Text[] texts = LibraryCluesViewport.GetComponentsInChildren<Text>(); // Viewport içindeki tüm Text UI nesnelerini al
 
-                for(int i = 0; i < allCluesList.Count; i++)
+                for(int i = 0; i < clues.Count; i++)
                 {
                     if (i == 4)
                         break;
-                    texts[i].text = allCluesList[i];
+                    texts[i].text = clues[i];
                 }
             }
             else
@@ -255,36 +308,6 @@ public class QuizManager : MonoBehaviour
             optionButtons[i].onClick.RemoveAllListeners();
             optionButtons[i].onClick.AddListener(delegate { ButtonClicked(optionIndex); });
         }
-    }
-
-
-    public void CombineClues(int quizQuestionID)
-    {
-        allCluesList = new List<string>();
-        allCluesList.AddRange(quizQuestions[quizQuestionID].clues);
-        allCluesList.AddRange(quizQuestions[quizQuestionID].falseClues);
-    }
-
-    public string GetRandomClue(int quizQuestionID)
-    {
-        if (allCluesList.Count == 0)
-        {
-            return "Clues finished";
-        }
-        int randomIndex = UnityEngine.Random.Range(0, allCluesList.Count);
-        string randomClue = allCluesList[randomIndex];
-        allCluesList.RemoveAt(randomIndex);
-
-        if (quizQuestions[quizQuestionID].clues.Contains(randomClue))
-        {
-            quizQuestions[quizQuestionID].clues.Remove(randomClue);
-        }
-        else if (quizQuestions[quizQuestionID].falseClues.Contains(randomClue))
-        {
-            quizQuestions[quizQuestionID].falseClues.Remove(randomClue);
-        }
-
-        return randomClue;
     }
 
     public void SetJokerButtons()
@@ -414,6 +437,7 @@ public class QuizManager : MonoBehaviour
     }
     private IEnumerator CorrectAnswer(float delay, int selectedOptionIndex)
     {
+        allCluesList.Clear();
         PanelColor.color = Color.green;
         optionButtons[selectedOptionIndex].GetComponent<Image>().color = Color.yellow;
         quizTimer.StopTimer();
@@ -424,6 +448,7 @@ public class QuizManager : MonoBehaviour
     {
         if (!x2Enabled)
         {
+            allCluesList.Clear();
             optionButtons[selectedOptionIndex].GetComponent<Image>().color = Color.red;
             PanelColor.color = Color.red;
             quizTimer.StopTimer();

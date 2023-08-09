@@ -3285,7 +3285,7 @@ MonoBehaviour:
   patientId: 0
   targetPoint: {x: 0, y: 0, z: 0}
   controller: {fileID: 0}
-  patientSpawnDelay: 30
+  patientSpawnDelay: 5
 --- !u!1 &9162610052303806109
 GameObject:
   m_ObjectHideFlags: 0

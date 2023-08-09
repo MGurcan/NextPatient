@@ -55,18 +55,6 @@ public class GameController : MonoBehaviour
                 OpenQuiz();
         }
 
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            if (QuizScreen.active == false)
-            {
-                GiveClue();
-            }
-            else
-            {
-                Debug.Log("Clue give time finished");
-            }
-        }
-
         if (Input.GetKeyDown(KeyCode.P))
         {
             Shop.SetActive(true);
@@ -109,17 +97,12 @@ public class GameController : MonoBehaviour
     {
         if(patient != null)
         {
+            LibraryHolder.SetActive(false);
             QuizScreen.SetActive(true);
             UnlockAndShowCursor();
             quizOpened = true; // TODO refactor: very tricky
             quizManager.prepareQuiz(patientMovement.patientId);
         }
-    }
-    public void GiveClue()
-    {
-        quizManager.CombineClues(patientMovement.patientId);
-        string randomClue = quizManager.GetRandomClue(patientMovement.patientId);
-        Debug.Log("Random Clue: " + randomClue);
     }
     public void CloseQuiz(bool correctWrongAnswer) //correctWrongAnswer: true->correct answer, false-> wrong answer
     {
@@ -143,14 +126,13 @@ public class GameController : MonoBehaviour
     public void SeeCluesJokerCloseQuiz()
     {
         //quizOpened = false;
-        Debug.Log("gamcontroller, quizdekatif");
         QuizScreen.SetActive(false);
         LockAndHideCursor();
     }
 
     public void SeeCluesJokerOpenQuiz()
     {
-        OfficeHolder.SetActive(true);
+        //OfficeHolder.SetActive(true);
         LibraryHolder.SetActive(false);
         OpenQuiz();
     }

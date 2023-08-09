@@ -35,7 +35,7 @@ public class ChangeSceneController : MonoBehaviour
         }
         else if(scene == "Library")
         {
-            OfficeHolder.SetActive(false);
+            //OfficeHolder.SetActive(false);
             LibraryHolder.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
