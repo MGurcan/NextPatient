@@ -82,7 +82,7 @@ public class WireTask : MonoBehaviour
                 {
                     GatheredCluesText.SetActive(true);
                     NoCoinsAnim.SetTrigger("NoCoins");
-                    yield return new WaitForSeconds(1);
+                    yield return new WaitForSeconds(1); //aynisini numberstaska at
                 }
                 GatheredCluesText.SetActive(false);
                 MiniGames.GetComponent<MiniGameController>().CloseTask(transform.gameObject);

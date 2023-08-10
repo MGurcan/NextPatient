@@ -10,10 +10,13 @@ public class NumbersTask : MonoBehaviour
     public List<Button> buttons;
     public List<Button> shuffledButtons;
     int counter = 0;
-    private int minigameID_wiretask = 0;
+    private int minigameID_numberstask = 0;
 
     public QuizManager quizManager;
     public GameObject MiniGames;
+
+    [SerializeField] GameObject GatheredCluesText;
+    [SerializeField] Animator NoCoinsAnim;
     public void RestartGame()
     {
         counter = 0;
@@ -62,7 +65,14 @@ public class NumbersTask : MonoBehaviour
         else
         {
             Debug.Log("Win bravo");
-            quizManager.GatherClues(minigameID_wiretask);
+            quizManager.GatherClues(minigameID_numberstask);
+            if(quizManager.correctMiniGameID == minigameID_numberstask)
+            {
+                GatheredCluesText.SetActive(true);
+                NoCoinsAnim.SetTrigger("NoCoins");
+                yield return new WaitForSeconds(1);
+            }
+
             MiniGames.GetComponent<MiniGameController>().CloseTask(transform.gameObject);
             RestartGame();
         }
