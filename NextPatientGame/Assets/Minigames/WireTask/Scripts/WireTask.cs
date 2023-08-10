@@ -142,5 +142,4 @@ public class WireTask : MonoBehaviour
 
         IsTaskCompleted = false;
     }
-
 }

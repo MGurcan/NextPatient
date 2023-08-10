@@ -47,8 +47,7 @@ public class QuizManager : MonoBehaviour
     public Sprite[] PatientSprites;
     public Image PatientImage;
 
-    public GameObject PanelPatients;
-
+    public PatientSpawn patientSpawn;
     private void Awake()
     {
         quizTimer = GetComponent<QuizTimer>();
@@ -454,6 +453,7 @@ public class QuizManager : MonoBehaviour
     {
         if (!x2Enabled)
         {
+            patientSpawn.KillPatient();
             allCluesList.Clear();
             optionButtons[selectedOptionIndex].GetComponent<Image>().color = Color.red;
             PanelColor.color = Color.red;
