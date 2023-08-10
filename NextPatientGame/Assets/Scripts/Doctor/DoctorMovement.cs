@@ -22,11 +22,13 @@ public class DoctorMovement : MonoBehaviour
     private float runInput;
     private float runVelocity = 1f;
 
+    Animator animator;
 
     public Gold gold;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
         doctor_actions = new DoctorActions();
         doctor_actions.Doktor_Map.Enable();
     }
@@ -36,6 +38,9 @@ public class DoctorMovement : MonoBehaviour
         movementInput = doctor_actions.Doktor_Map.Movement.ReadValue<Vector2>();
         runInput = doctor_actions.Doktor_Map.Run.ReadValue<float>();
         jumpInput = doctor_actions.Doktor_Map.Jump.ReadValue<float>();
+
+        bool isWalking = movementInput.magnitude > 0.1f; // Check if movement input is significant
+
 
         if (movementInput.y < 0) moveSpeedZ = 3f;   // walk backward
         else moveSpeedZ = 5f;                       // walk forward
@@ -59,6 +64,12 @@ public class DoctorMovement : MonoBehaviour
         rb.MovePosition(rb.position + movement);
 
         if (jumpInput > 0) Jump();
+
+        if (animator != null)
+        {
+            animator.SetBool("isWalking", isWalking);
+        }
+
     }
 
     private void Jump()

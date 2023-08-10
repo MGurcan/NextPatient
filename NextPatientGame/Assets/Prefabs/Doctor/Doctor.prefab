@@ -34,10 +34,10 @@ Transform:
   m_LocalScale: {x: 1.8723748, y: 1.8723748, z: 1.8723748}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 900424224341402006}
   - {fileID: 3378144900414346590}
+  - {fileID: 900424224341402006}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8065871050163295078
 MeshFilter:
@@ -128,6 +128,7 @@ MonoBehaviour:
   moveSpeedZ: 5
   jumpForce: 200
   rb: {fileID: 2101010582258929463}
+  gold: {fileID: 0}
 --- !u!54 &2101010582258929463
 Rigidbody:
   m_ObjectHideFlags: 0
