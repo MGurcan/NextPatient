@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -26,6 +27,8 @@ public class GameController : MonoBehaviour
     public GameObject[] MiniGameButtons;
 
     public NumbersTask numbersTask;
+
+    public Image[] PanelPatients;
     private void Awake()
     {
        LockAndHideCursor();
@@ -120,6 +123,10 @@ public class GameController : MonoBehaviour
         if (correctWrongAnswer)
         {
             goldSpawn.CreateGold();
+        }
+        else
+        {
+            PanelPatients[currentPatientID%5].color = Color.red;
         }
     }
 

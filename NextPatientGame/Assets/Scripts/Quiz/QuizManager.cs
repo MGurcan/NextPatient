@@ -47,6 +47,8 @@ public class QuizManager : MonoBehaviour
     public Sprite[] PatientSprites;
     public Image PatientImage;
 
+    public GameObject PanelPatients;
+
     private void Awake()
     {
         quizTimer = GetComponent<QuizTimer>();
