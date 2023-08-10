@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: b27dd7693c4eaf3479db209eee62d9f3, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -20931,7 +20931,6 @@ GameObject:
   - component: {fileID: 920324551}
   - component: {fileID: 920324554}
   - component: {fileID: 920324553}
-  - component: {fileID: 920324552}
   m_Layer: 5
   m_Name: Panel_Patients
   m_TagString: Untagged
@@ -20960,44 +20959,6 @@ RectTransform:
   m_AnchoredPosition: {x: 209.97717, y: -50}
   m_SizeDelta: {x: 582.7515, y: 138.76}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &920324552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 920324550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7ebda4ceed91ab439deb9c2be6f7998, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jokers: {fileID: 3584501049773521062}
-  ShopItemsList:
-  - Image: {fileID: 21300000, guid: 5a74a6e7bb516694b9a2cbe05a4750bc, type: 3}
-    Price: 120
-    shopItemId: 0
-    IsPurchased: 0
-    purchaseCount: 0
-  - Image: {fileID: 21300000, guid: 00629a58b78064c47af91006a01c0386, type: 3}
-    Price: 123
-    shopItemId: 1
-    IsPurchased: 0
-    purchaseCount: 0
-  - Image: {fileID: 21300000, guid: bff9bfaaf992f9e4bacf45f1a7d153ce, type: 3}
-    Price: 235
-    shopItemId: 2
-    IsPurchased: 0
-    purchaseCount: 0
-  - Image: {fileID: 21300000, guid: 8447c3734afa66846985baf00b077812, type: 3}
-    Price: 250
-    shopItemId: 3
-    IsPurchased: 0
-    purchaseCount: 0
-  NoCoinsAnim: {fileID: 0}
-  ItemTemplate: {fileID: 1719543558687600, guid: 73515c7fff1fcbb48b80f91e295ca208, type: 3}
-  ShopScrollView: {fileID: 0}
-  ShopObject: {fileID: 484771545}
 --- !u!114 &920324553
 MonoBehaviour:
   m_ObjectHideFlags: 0
