@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour
     public GoldSpawn goldSpawn;
     public QuizManager quizManager;
     public int currentPatientID = 0;
+    public int currentQuestionID = 0;
 
     public GameObject MiniGameController;
     public GameObject MiniGames;
@@ -103,8 +104,9 @@ public class GameController : MonoBehaviour
             LibraryHolder.SetActive(false);
             QuizScreen.SetActive(true);
             UnlockAndShowCursor();
-            quizOpened = true; // TODO refactor: very tricky
-            quizManager.prepareQuiz(patientMovement.patientId);
+            quizOpened = true;
+            quizManager.prepareQuiz(currentQuestionID);
+            currentQuestionID++;
         }
     }
     public void CloseQuiz(bool correctWrongAnswer) //correctWrongAnswer: true->correct answer, false-> wrong answer

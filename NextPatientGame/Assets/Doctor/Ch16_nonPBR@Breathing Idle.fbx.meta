@@ -19,6 +19,46 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Ch16_eyelashes
     second: {fileID: 2100000, guid: 18b1bc56682616d4cad30a830a3362d3, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch16_1001_Diffuse
+    second: {fileID: 2800000, guid: 15cbd8b5f6b7a2540bb409a718ae14cc, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch16_1001_Glossiness
+    second: {fileID: 2800000, guid: 0aa2d7e15d012ec44ab9ff778ee2ffcd, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch16_1001_Normal
+    second: {fileID: 2800000, guid: 43c5a04faf7b73644937c176025c7e83, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch16_1001_Specular
+    second: {fileID: 2800000, guid: 76135e1e059a5934f8e1390dfeef0a9e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch16_1002_Diffuse
+    second: {fileID: 2800000, guid: b77880f3141731447a185f8d811e6e29, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch16_1002_Glossiness
+    second: {fileID: 2800000, guid: 3aad48e8032eaf34f8ca781a4d294e08, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch16_1002_Normal
+    second: {fileID: 2800000, guid: 094624cbca34d4b4184e1d573da29459, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch16_1002_Specular
+    second: {fileID: 2800000, guid: 3d5553887a10fb3498fc6c63092294e3, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

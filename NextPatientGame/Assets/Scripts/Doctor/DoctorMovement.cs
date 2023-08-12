@@ -25,6 +25,8 @@ public class DoctorMovement : MonoBehaviour
     Animator animator;
 
     public Gold gold;
+
+    public GameObject footstep;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -41,6 +43,7 @@ public class DoctorMovement : MonoBehaviour
 
         bool isWalking = movementInput.magnitude > 0.1f; // Check if movement input is significant
 
+        footstep.SetActive(isWalking);
 
         if (movementInput.y < 0) moveSpeedZ = 3f;   // walk backward
         else moveSpeedZ = 5f;                       // walk forward
@@ -65,6 +68,7 @@ public class DoctorMovement : MonoBehaviour
 
         if (jumpInput > 0) Jump();
 
+        Debug.Log(animator);
         if (animator != null)
         {
             animator.SetBool("isWalking", isWalking);
