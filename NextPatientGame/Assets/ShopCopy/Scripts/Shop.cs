@@ -8,6 +8,7 @@ public class Shop : MonoBehaviour
 
 	public static Shop Instance;
 	public Jokers jokers;
+	public GameData gameData;
 	void Awake ()
 	{
 		if (Instance == null)
@@ -43,11 +44,8 @@ public class Shop : MonoBehaviour
 
 	void Start ()
 	{
-		for(int i = 0; i < ShopItemsList.Count; i++)
-		{
-			jokers.PurchaseJoker(ShopItemsList[i]);
-        }
-		
+        jokers.purchasedJokers = gameData.purchasedJokers;
+		ShopItemsList = gameData.purchasedJokers;
 
 		int len = ShopItemsList.Count;
 		for (int i = 0; i < len; i++) {
@@ -67,14 +65,15 @@ public class Shop : MonoBehaviour
 		if (Gold.Instance.HasEnoughCoins(ShopItemsList[itemIndex].Price))
 		{
 			Gold.Instance.UseCoins(ShopItemsList[itemIndex].Price);
+			gameData.totalGold = Gold.Instance.totalGold;
             Gold.Instance.UpdateAllCoinsUIText();
             Debug.Log("Joker at index: " + itemIndex + " purchased!!");
 			
-			//ShopItemsList[itemIndex].purchaseCount++;
 			jokers.purchasedJokers[itemIndex].purchaseCount++;
 			
             ShopItemsList[itemIndex].IsPurchased = true;
             UpdateBuyButton(itemIndex, ShopItemsList[itemIndex].purchaseCount);
+			gameData.purchasedJokers = jokers.purchasedJokers;
         }
         else
         {

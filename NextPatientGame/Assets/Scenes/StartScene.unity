@@ -896,6 +896,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1120576110, guid: 3c614e9cd35bf468b8d2f1689cc4cca8, type: 3}
+      propertyPath: gamePauserObject
+      value: 
+      objectReference: {fileID: 5964296193060381407, guid: a714fe8ddacbd4840851c525804ded24, type: 3}
+    - target: {fileID: 1120576110, guid: 3c614e9cd35bf468b8d2f1689cc4cca8, type: 3}
       propertyPath: menuButtonController
       value: 
       objectReference: {fileID: 1170861871}

@@ -40,6 +40,11 @@ public class MenuButton : MonoBehaviour
                     gamePauserObject.GetComponent<PauseGame>().Exit();
 
                 }
+                else if (this.thisIndex == 1 && SceneManager.GetActiveScene().name.Equals("StartScene"))
+                {
+                    gamePauserObject.GetComponent<PauseGame>().ContinueGame();
+
+                }
             }
             else if (animator.GetBool ("pressed")){
 				animator.SetBool ("pressed", false);

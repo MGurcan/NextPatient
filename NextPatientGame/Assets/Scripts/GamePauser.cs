@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static Shop;
 
 public class PauseGame : MonoBehaviour
 {
     private bool oyunDurdu = false;
+
+    public GameData gameData;
 
     void Update()
     {
@@ -48,8 +51,16 @@ public class PauseGame : MonoBehaviour
     public void NewGame()
     {
         SceneManager.LoadScene("Office");
+        gameData.currentPatientID = 0;
+        gameData.purchasedJokers = new List<ShopItem>();
+        gameData.totalGold = 0;
+        gameData.alivePatientIndexes = new List<int>();
+        gameData.currentQuestionID = 0;
     }
-
+    public void ContinueGame()
+    {
+        SceneManager.LoadScene("Office");
+    }
 
 
 

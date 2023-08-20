@@ -30,6 +30,25 @@ public class GameController : MonoBehaviour
     public NumbersTask numbersTask;
 
     public Image[] PanelPatients;
+
+    public GameData gameData;
+
+    private void Start()
+    {
+        LoadGameData();
+    }
+    private void LoadGameData()
+    {
+        currentPatientID = gameData.currentPatientID;
+        currentQuestionID = gameData.currentQuestionID;
+        patientSpawn.GetComponent<PatientSpawn>().currentPatientIndex = currentPatientID;
+
+        for(int i = 0; i<PanelPatients.Length; i++)
+        {
+            if (!gameData.alivePatientIndexes.Contains(i))
+                PanelPatients[i].color = Color.red;
+        }
+    }
     private void Awake()
     {
        LockAndHideCursor();
@@ -107,6 +126,7 @@ public class GameController : MonoBehaviour
             quizOpened = true;
             quizManager.prepareQuiz(currentQuestionID);
             currentQuestionID++;
+            gameData.currentQuestionID = currentQuestionID;
         }
     }
     public void CloseQuiz(bool correctWrongAnswer) //correctWrongAnswer: true->correct answer, false-> wrong answer

@@ -14292,7 +14292,9 @@ MonoBehaviour:
   - {fileID: 4285756212588931474, guid: 1f0fb8abbc3ae8740b8f19dd3a7e5064, type: 3}
   - {fileID: 5733636247904363407, guid: 2277f7be822966d46906a04d2dd83fd1, type: 3}
   - {fileID: 1384262661435029152, guid: de2f872901702b647aa7272a9f13a9f2, type: 3}
+  currentPatientIndex: 0
   quizManager: {fileID: 670816781}
+  gameData: {fileID: 11400000, guid: 875df2f4e991dcb4eaedf33eed20d410, type: 2}
 --- !u!1001 &611931411
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37082,6 +37084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jokers: {fileID: 3584501049773521062}
+  gameData: {fileID: 11400000, guid: 875df2f4e991dcb4eaedf33eed20d410, type: 2}
   ShopItemsList:
   - Image: {fileID: 21300000, guid: 5a74a6e7bb516694b9a2cbe05a4750bc, type: 3}
     Price: 120
@@ -49764,6 +49767,7 @@ MonoBehaviour:
   - {fileID: 947251112}
   - {fileID: 1246059125}
   - {fileID: 2066820730}
+  gameData: {fileID: 11400000, guid: 875df2f4e991dcb4eaedf33eed20d410, type: 2}
 --- !u!4 &2093712437
 Transform:
   m_ObjectHideFlags: 0
@@ -50900,6 +50904,10 @@ PrefabInstance:
       propertyPath: footstep
       value: 
       objectReference: {fileID: 848517116}
+    - target: {fileID: 6246673207661708881, guid: f7a569838b9391a46ac456e22b266260, type: 3}
+      propertyPath: gameData
+      value: 
+      objectReference: {fileID: 11400000, guid: 875df2f4e991dcb4eaedf33eed20d410, type: 2}
     - target: {fileID: 7374673968931808456, guid: f7a569838b9391a46ac456e22b266260, type: 3}
       propertyPath: m_Enabled
       value: 0

@@ -27,12 +27,16 @@ public class DoctorMovement : MonoBehaviour
     public Gold gold;
 
     public GameObject footstep;
+    public GameData gameData;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         doctor_actions = new DoctorActions();
         doctor_actions.Doktor_Map.Enable();
+
+        gold.totalGold = gameData.totalGold;
+        gold.UpdateAllCoinsUIText();
     }
 
     void Update()
@@ -97,6 +101,7 @@ public class DoctorMovement : MonoBehaviour
             Destroy(collision.gameObject);
             gold.GatherGold(20);
             gold.UpdateAllCoinsUIText();
+            gameData.totalGold = gold.totalGold;
         }
 
         if (collision.gameObject.CompareTag("WireTask"))

@@ -11,4 +11,5 @@ public class GameData : ScriptableObject
     public int totalGold;
     public List<int> alivePatientIndexes;
     public int currentQuestionID;
+    public int beforeRoundPatientID;
 }

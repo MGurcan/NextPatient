@@ -3,8 +3,6 @@ using UnityEngine.UI;
 using System.Collections;
 using static Shop;
 using System.Collections.Generic;
-using System;
-using System.Runtime.CompilerServices;
 
 public class QuizManager : MonoBehaviour
 {
@@ -57,8 +55,7 @@ public class QuizManager : MonoBehaviour
         }
         else
         {
-            defaultButtonColor = Color.white; // Varsayýlan bir renk deðeri atayabilirsiniz
-            Debug.LogError("Geçersiz hexadecimal renk deðeri!");
+            defaultButtonColor = Color.white; 
         }
         if (ColorUtility.TryParseHtmlString("#B123DA", out Color color2))
         {
@@ -66,8 +63,7 @@ public class QuizManager : MonoBehaviour
         }
         else
         {
-            defaultPanelColor = Color.white; // Varsayýlan bir renk deðeri atayabilirsiniz
-            Debug.LogError("Geçersiz hexadecimal renk deðeri!");
+            defaultPanelColor = Color.white; 
         }
     }
     private void Start()
