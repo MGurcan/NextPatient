@@ -44,6 +44,7 @@ public class DoctorMovement : MonoBehaviour
         movementInput = doctor_actions.Doktor_Map.Movement.ReadValue<Vector2>();
         runInput = doctor_actions.Doktor_Map.Run.ReadValue<float>();
         jumpInput = doctor_actions.Doktor_Map.Jump.ReadValue<float>();
+        bool isRunning = movementInput.magnitude > 0.1f;
 
         bool isWalking = movementInput.magnitude > 0.1f; // Check if movement input is significant
 
@@ -55,10 +56,12 @@ public class DoctorMovement : MonoBehaviour
         if(runInput >  0)
         {   //run
             runVelocity = 1.5f;
+            isRunning = true;
         }
         else
         {
             runVelocity = 1f;
+            isRunning = false;
         }
 
 
@@ -76,6 +79,7 @@ public class DoctorMovement : MonoBehaviour
         if (animator != null)
         {
             animator.SetBool("isWalking", isWalking);
+            animator.SetBool("isRunning", isRunning);
         }
 
     }
