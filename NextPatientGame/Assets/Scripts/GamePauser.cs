@@ -50,18 +50,16 @@ public class PauseGame : MonoBehaviour
 
     public void NewGame()
     {
-        SceneManager.LoadScene("Office");
         gameData.currentPatientID = 0;
         gameData.purchasedJokers = new List<ShopItem>();
         gameData.totalGold = 0;
         gameData.alivePatientIndexes = new List<int>();
         gameData.currentQuestionID = 0;
+        SceneManager.LoadScene("StartCredit");
     }
+
     public void ContinueGame()
     {
         SceneManager.LoadScene("Office");
     }
-
-
-
 }
