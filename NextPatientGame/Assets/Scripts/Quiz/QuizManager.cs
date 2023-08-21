@@ -254,7 +254,7 @@ public class QuizManager : MonoBehaviour
             quizClues.text = cluesText;
         }
 
-        PatientImage.sprite = PatientSprites[quizQuestionID % PatientSprites.Length];
+        PatientImage.sprite = PatientSprites[gameController.currentPatientID % PatientSprites.Length];
     }
 
     public void GatherClues(int miniGameID)   //for mini games

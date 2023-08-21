@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PatientSpawn : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class PatientSpawn : MonoBehaviour
     {
         if(alivePatientIndexes.Count <= 0)
         {
-            Debug.Log("GAME OVER!!!!!");
+            Debug.Log("No Alive Patient");
         }
         Debug.Log("Patient Spawned");
 
@@ -49,6 +50,11 @@ public class PatientSpawn : MonoBehaviour
         int index = alivePatientIndexes.IndexOf(beforeRoundPatientID);
         alivePatientIndexes.RemoveAt(index);
         //gameData.alivePatientIndexes.RemoveAt(index);
+
+        if(alivePatientIndexes.Count <= 0)
+        {
+            SceneManager.LoadScene("FinishScene");
+        }
     }
 
     private int GetNextPatientIndex()

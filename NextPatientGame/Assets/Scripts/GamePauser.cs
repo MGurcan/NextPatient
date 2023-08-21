@@ -47,14 +47,14 @@ public class PauseGame : MonoBehaviour
         Debug.Log("Exit methodu");
         Application.Quit();
     }
-
     public void NewGame()
     {
-        gameData.currentPatientID = 0;
-        gameData.purchasedJokers = new List<ShopItem>();
-        gameData.totalGold = 0;
-        gameData.alivePatientIndexes = new List<int>();
-        gameData.currentQuestionID = 0;
+        Debug.Log("alivePatientIndexes: " + gameData.defaultAlivePatientIndexes);
+        gameData.currentPatientID = gameData.defaultCurrentPatientID;
+        gameData.purchasedJokers = new List<ShopItem>(gameData.defaultPurchasedJokers); // Yeni bir liste oluþturarak kopyalama
+        gameData.totalGold = gameData.defaultTotalGold;
+        gameData.alivePatientIndexes = new List<int>(gameData.defaultAlivePatientIndexes); // Yeni bir liste oluþturarak kopyalama
+        gameData.currentQuestionID = gameData.defaultCurrentQuestionID;
         SceneManager.LoadScene("StartCredit");
     }
 

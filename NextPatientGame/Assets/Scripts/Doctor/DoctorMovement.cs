@@ -75,7 +75,6 @@ public class DoctorMovement : MonoBehaviour
 
         if (jumpInput > 0) Jump();
 
-        Debug.Log(animator);
         if (animator != null)
         {
             animator.SetBool("isWalking", isWalking);

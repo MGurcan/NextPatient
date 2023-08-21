@@ -30,9 +30,14 @@ public class MenuButton : MonoBehaviour
                     gamePauserObject.GetComponent<PauseGame>().Exit();
 
                 }
-                else if (this.thisIndex == 0 && SceneManager.GetActiveScene().name.Equals("StartScene"))
+                else if (this.thisIndex == 0 && (SceneManager.GetActiveScene().name.Equals("StartScene") || SceneManager.GetActiveScene().name.Equals("FinishScene")))
                 {
                     gamePauserObject.GetComponent<PauseGame>().NewGame();
+
+                }
+                else if (this.thisIndex == 1 && SceneManager.GetActiveScene().name.Equals("FinishScene"))
+                {
+                    gamePauserObject.GetComponent<PauseGame>().Exit();
 
                 }
                 else if (this.thisIndex == 2 && SceneManager.GetActiveScene().name.Equals("StartScene"))
