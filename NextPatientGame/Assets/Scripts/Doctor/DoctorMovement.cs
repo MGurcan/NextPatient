@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class DoctorMovement : MonoBehaviour
 {
@@ -80,7 +77,6 @@ public class DoctorMovement : MonoBehaviour
             animator.SetBool("isWalking", isWalking);
             animator.SetBool("isRunning", isRunning);
         }
-
     }
 
     private void Jump()
@@ -102,7 +98,7 @@ public class DoctorMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Gold"))
         {
             Destroy(collision.gameObject);
-            gold.GatherGold(20);
+            gold.GatherGold(150);
             gold.UpdateAllCoinsUIText();
             gameData.totalGold = gold.totalGold;
         }

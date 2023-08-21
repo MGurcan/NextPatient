@@ -62,7 +62,8 @@ public class WireTask : MonoBehaviour
 
     public void StartCheckWireTask()
     {
-        StartCoroutine(CheckTaskCompletion());
+        if(this.gameObject.activeSelf)
+            StartCoroutine(CheckTaskCompletion());
     }
     private IEnumerator CheckTaskCompletion()
     {

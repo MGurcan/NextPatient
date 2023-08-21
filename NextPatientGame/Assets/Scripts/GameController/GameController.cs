@@ -120,6 +120,7 @@ public class GameController : MonoBehaviour
     {
         if(patient != null)
         {
+            MiniGameController.GetComponent<MiniGameController>().ForceCloseTask();
             LibraryHolder.SetActive(false);
             QuizScreen.SetActive(true);
             UnlockAndShowCursor();

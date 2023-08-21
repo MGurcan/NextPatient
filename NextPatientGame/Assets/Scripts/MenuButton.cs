@@ -11,8 +11,6 @@ public class MenuButton : MonoBehaviour
 	[SerializeField] int thisIndex;
 	public GameObject gamePauserObject;
     public GameObject gameStarterScene;
-
-    // Update is called once per frame
     void Update()
     {
 		if(menuButtonController.index == thisIndex)

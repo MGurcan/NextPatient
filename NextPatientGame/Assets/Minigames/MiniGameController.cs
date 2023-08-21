@@ -1,12 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MiniGameController : MonoBehaviour
 {
-
     public GameObject OfficeHolder;
-
     public GameObject WireTask;
     public GameObject NumbersTask;
 
@@ -25,5 +21,19 @@ public class MiniGameController : MonoBehaviour
         transform.gameObject.SetActive(true);
         if(WireTask != null) { WireTask.GetComponent<WireTask>().StartCheckWireTask(); }
        
+    }
+    public void ForceCloseTask()
+    {
+        if(WireTask.activeSelf)
+        {
+            WireTask.GetComponent<WireTask>().ResetGame();
+            WireTask.SetActive(false);
+        }
+        else if(NumbersTask.activeSelf)
+        {
+            NumbersTask.GetComponent<NumbersTask>().RestartGame();
+            NumbersTask.SetActive(false);
+        }
+        transform.gameObject.SetActive(false);
     }
 }

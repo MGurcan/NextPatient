@@ -47,6 +47,8 @@ public class QuizManager : MonoBehaviour
     public Image PatientImage;
 
     public PatientSpawn patientSpawn;
+
+    private QuizQuestionList quizQuestionList = new QuizQuestionList();
     private void Awake()
     {
         quizTimer = GetComponent<QuizTimer>();
@@ -68,7 +70,10 @@ public class QuizManager : MonoBehaviour
         }
     }
     private void Start()
-    { 
+    {
+        quizQuestions = quizQuestionList.GetQuestions();
+
+        /*
         quizQuestions = new Question[]
         {
             new Question("Bu tabloya yol acmasi en olasi bakteri asagidakilerden hangisidir?",
@@ -194,7 +199,7 @@ public class QuizManager : MonoBehaviour
             new string[] { "Wilson hastalığı ", "Caroli hastalığı ", "Kistik fibrozis ", "Konjenital hepatik fibrozis" },
             new List<string> { "14 yaşında erkek", "Portal hipertansiyona ikincil semptomlara sahip", "karaciğer biyopsisinde, parankimi düzensiz bir şekilde bölen kalın kollajenöz septalarla genişlemiş portal alanlar ve kenarında safra yollarıyla devamlılık gösteren anormal şekilli safra kanalları izleniyor"},
             new List<string> {"clue kazanamadı 10", "tekrar dene 10" },
-            3)};
+            3)};    */
     }
 
     void OnEnable()

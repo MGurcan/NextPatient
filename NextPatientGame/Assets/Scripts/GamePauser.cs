@@ -49,7 +49,6 @@ public class PauseGame : MonoBehaviour
     }
     public void NewGame()
     {
-        Debug.Log("alivePatientIndexes: " + gameData.defaultAlivePatientIndexes);
         gameData.currentPatientID = gameData.defaultCurrentPatientID;
         gameData.purchasedJokers = new List<ShopItem>(gameData.defaultPurchasedJokers); // Yeni bir liste oluþturarak kopyalama
         gameData.totalGold = gameData.defaultTotalGold;

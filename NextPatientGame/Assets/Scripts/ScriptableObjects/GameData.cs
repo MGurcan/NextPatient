@@ -22,3 +22,4 @@ public class GameData : ScriptableObject
     public int defaultCurrentQuestionID = 0;
     public int defaultBeforeRoundPatientID = 0;
 }
+

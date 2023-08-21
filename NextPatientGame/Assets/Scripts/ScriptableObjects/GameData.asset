@@ -22,22 +22,22 @@ MonoBehaviour:
   - Image: {fileID: 21300000, guid: 00629a58b78064c47af91006a01c0386, type: 3}
     Price: 100
     shopItemId: 1
-    IsPurchased: 1
-    purchaseCount: 1
+    IsPurchased: 0
+    purchaseCount: 0
   - Image: {fileID: 21300000, guid: bff9bfaaf992f9e4bacf45f1a7d153ce, type: 3}
     Price: 150
     shopItemId: 2
-    IsPurchased: 1
-    purchaseCount: 1
+    IsPurchased: 0
+    purchaseCount: 0
   - Image: {fileID: 21300000, guid: 8447c3734afa66846985baf00b077812, type: 3}
     Price: 200
     shopItemId: 3
-    IsPurchased: 1
-    purchaseCount: 1
-  totalGold: 0
-  alivePatientIndexes: 0000000001000000020000000300000004000000
-  currentQuestionID: 0
-  beforeRoundPatientID: 2
+    IsPurchased: 0
+    purchaseCount: 0
+  totalGold: 450
+  alivePatientIndexes: 000000000100000003000000
+  currentQuestionID: 4
+  beforeRoundPatientID: 4
   defaultCurrentPatientID: 0
   defaultPurchasedJokers:
   - Image: {fileID: 21300000, guid: 5a74a6e7bb516694b9a2cbe05a4750bc, type: 3}
@@ -48,17 +48,17 @@ MonoBehaviour:
   - Image: {fileID: 21300000, guid: 00629a58b78064c47af91006a01c0386, type: 3}
     Price: 100
     shopItemId: 1
-    IsPurchased: 1
+    IsPurchased: 0
     purchaseCount: 1
   - Image: {fileID: 21300000, guid: bff9bfaaf992f9e4bacf45f1a7d153ce, type: 3}
     Price: 150
     shopItemId: 2
-    IsPurchased: 1
+    IsPurchased: 0
     purchaseCount: 1
   - Image: {fileID: 21300000, guid: 8447c3734afa66846985baf00b077812, type: 3}
     Price: 200
     shopItemId: 3
-    IsPurchased: 1
+    IsPurchased: 0
     purchaseCount: 1
   defaultTotalGold: 450
   defaultAlivePatientIndexes: 0000000001000000020000000300000004000000
