@@ -3,14 +3,15 @@ using UnityEngine.UI;
 using System.Collections;
 using static Shop;
 using System.Collections.Generic;
+using TMPro;
 
 public class QuizManager : MonoBehaviour
 {
     public Question[] quizQuestions;
     public Button[] optionButtons;
     public int correctOption;
-    public Text quizQuestion;
-    public Text quizClues;
+    public TMP_Text quizQuestion;
+    public TMP_Text quizClues;
 
     public GameController gameController;
 
