@@ -26,6 +26,12 @@ public class Gold : MonoBehaviour
     public int totalGold;
 
     [SerializeField] Text[] allCoinsUIText;
+    void Start()
+    {
+        totalGold = 1000;
+        UpdateAllCoinsUIText();
+        Debug.Log("len" + allCoinsUIText.Length);
+    }
     public void GatherGold(int goldAmount)
     {
         totalGold += goldAmount;
