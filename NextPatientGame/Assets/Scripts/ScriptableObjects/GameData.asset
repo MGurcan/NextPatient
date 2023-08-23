@@ -12,53 +12,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1551c5921d935946bba8cb2f6ef1a07, type: 3}
   m_Name: GameData
   m_EditorClassIdentifier: 
-  currentPatientID: 0
+  currentPatientID: 1
   purchasedJokers:
   - Image: {fileID: 21300000, guid: 5a74a6e7bb516694b9a2cbe05a4750bc, type: 3}
     Price: 50
     shopItemId: 0
-    IsPurchased: 0
+    IsPurchased: 1
     purchaseCount: 0
   - Image: {fileID: 21300000, guid: 00629a58b78064c47af91006a01c0386, type: 3}
     Price: 100
     shopItemId: 1
-    IsPurchased: 0
+    IsPurchased: 1
     purchaseCount: 0
   - Image: {fileID: 21300000, guid: bff9bfaaf992f9e4bacf45f1a7d153ce, type: 3}
     Price: 150
     shopItemId: 2
-    IsPurchased: 0
-    purchaseCount: 0
+    IsPurchased: 1
+    purchaseCount: 2
   - Image: {fileID: 21300000, guid: 8447c3734afa66846985baf00b077812, type: 3}
     Price: 200
     shopItemId: 3
-    IsPurchased: 0
-    purchaseCount: 0
-  totalGold: 450
-  alivePatientIndexes: 000000000100000003000000
-  currentQuestionID: 4
-  beforeRoundPatientID: 4
+    IsPurchased: 1
+    purchaseCount: 1
+  totalGold: 300
+  alivePatientIndexes: 
+  currentQuestionID: 8
+  beforeRoundPatientID: 1
   defaultCurrentPatientID: 0
   defaultPurchasedJokers:
   - Image: {fileID: 21300000, guid: 5a74a6e7bb516694b9a2cbe05a4750bc, type: 3}
     Price: 50
     shopItemId: 0
-    IsPurchased: 0
+    IsPurchased: 1
     purchaseCount: 0
   - Image: {fileID: 21300000, guid: 00629a58b78064c47af91006a01c0386, type: 3}
     Price: 100
     shopItemId: 1
-    IsPurchased: 0
-    purchaseCount: 1
+    IsPurchased: 1
+    purchaseCount: 0
   - Image: {fileID: 21300000, guid: bff9bfaaf992f9e4bacf45f1a7d153ce, type: 3}
     Price: 150
     shopItemId: 2
-    IsPurchased: 0
-    purchaseCount: 1
+    IsPurchased: 1
+    purchaseCount: 2
   - Image: {fileID: 21300000, guid: 8447c3734afa66846985baf00b077812, type: 3}
     Price: 200
     shopItemId: 3
-    IsPurchased: 0
+    IsPurchased: 1
     purchaseCount: 1
   defaultTotalGold: 450
   defaultAlivePatientIndexes: 0000000001000000020000000300000004000000

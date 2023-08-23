@@ -57,7 +57,7 @@ public class QuizQuestionList : MonoBehaviour
             1),
 
             new Question("Bu tabloya yol açmasý en olasý bakteri aþaðýdakilerden hangisidir?",
-            new string[] { "Burkholderia cepacia kompleks ", "Stenotrophomonas maltophilia ", "Acinetobacter baumannii kompleks ", "Pseudomonas aeruginosa " },
+            new string[] {  "Koryokarsinom ", "Mol hidatidiform ", "Ýnvaziv mol ", "Hidropik abortus" },
             new List<string> {
                 "Daha önce antibiyotik tedavisi almýþtýr.",
                 "Yaþ 65 kadýn hasta",
